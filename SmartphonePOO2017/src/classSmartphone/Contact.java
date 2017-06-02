@@ -1,4 +1,4 @@
-package me.smartphone.com;	
+package classSmartphone;	
 
 import java.util.UUID;
 

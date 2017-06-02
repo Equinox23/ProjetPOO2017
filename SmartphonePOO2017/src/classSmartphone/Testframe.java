@@ -1,4 +1,4 @@
-package me.smartphone.com;
+package classSmartphone;
 
 public class Testframe extends Smartphone{
 

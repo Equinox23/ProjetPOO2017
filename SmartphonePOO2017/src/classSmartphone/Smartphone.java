@@ -1,4 +1,4 @@
-package me.smartphone.com;
+package classSmartphone;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -17,14 +17,13 @@ public class Smartphone {
 		frameSmartphone.setSize(480,800);
 		frameSmartphone.setUndecorated(true);
 		frameSmartphone.setLocationRelativeTo(null);		
-		
 		frameSmartphone.getContentPane().setLayout(null);
 				
 		final JPanel panelMenu = new JPanel();
 		panelMenu.setBackground(new Color(0,0,0,150));
 		panelMenu.setBounds(15, 15, 450, 700);
 		frameSmartphone.getContentPane().add(panelMenu);
-		panelMenu.setVisible(false);
+		panelMenu.setVisible(true);
 		
 		final JPanel panelContact_1 = new JPanel();
 		panelContact_1.setBackground(Color.DARK_GRAY);
