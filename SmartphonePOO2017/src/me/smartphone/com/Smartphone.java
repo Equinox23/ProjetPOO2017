@@ -2,75 +2,41 @@ package me.smartphone.com;
 
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
 
 public class Smartphone {
 	
-	//décalaration de la fr
+	protected JFrame frameSmartphone;
 
-	private JFrame frmSmartphone;
-	private JPanel panelMenu;
-	private JPanel panelContact_1;
-	private JPanel panelGallerie;
-	private JPanel panelNewContact;
-	private JTextField txtRue;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Smartphone window = new Smartphone();
-					window.frmSmartphone.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
 	public Smartphone() {
-		initialize();
-	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frmSmartphone = new JFrame();
-		frmSmartphone.setResizable(false);
-		frmSmartphone.setTitle("Smartphone");
-		frmSmartphone.getContentPane().setBackground(Color.BLACK);
-		frmSmartphone.setSize(480,800);
-		frmSmartphone.setUndecorated(true);
-		frmSmartphone.setLocationRelativeTo(null);;
+		frameSmartphone = new JFrame();
+		frameSmartphone.setResizable(false);
+		frameSmartphone.setTitle("Smartphone");
+		frameSmartphone.getContentPane().setBackground(Color.BLACK);
+		frameSmartphone.setSize(480,800);
+		frameSmartphone.setUndecorated(true);
+		frameSmartphone.setLocationRelativeTo(null);
 		
-		
-		frmSmartphone.getContentPane().setLayout(null);
+		frameSmartphone.getContentPane().setLayout(null);
 				
 		final JPanel panelMenu = new JPanel();
 		panelMenu.setBackground(new Color(0,0,0,150));
 		panelMenu.setBounds(15, 15, 450, 700);
-		frmSmartphone.getContentPane().add(panelMenu);
+		frameSmartphone.getContentPane().add(panelMenu);
 		panelMenu.setVisible(false);
 		
 		final JPanel panelContact_1 = new JPanel();
 		panelContact_1.setBackground(Color.DARK_GRAY);
 		panelContact_1.setBounds(15, 15, 450, 700);
-		frmSmartphone.getContentPane().add(panelContact_1);
+		frameSmartphone.getContentPane().add(panelContact_1);
 		panelContact_1.setVisible(false);
 		panelContact_1.setLayout(null);
 		
 		final JPanel panelNewContact_1 = new JPanel();
 		panelNewContact_1.setBackground(Color.DARK_GRAY);
 		panelNewContact_1.setBounds(15, 15, 450, 700);
-		frmSmartphone.getContentPane().add(panelNewContact_1);
+		frameSmartphone.getContentPane().add(panelNewContact_1);
 		panelNewContact_1.setLayout(null);
 		panelNewContact_1.setVisible(false);
 		
@@ -162,6 +128,7 @@ public class Smartphone {
 		comboBox_2.setBounds(10, 390, 126, 40);
 		panelNewContact_1.add(comboBox_2);
 		
+		JTextField txtRue = new JTextField();
 		txtRue = new JTextField();
 		txtRue.setText("Rue");
 		txtRue.setBounds(166, 391, 262, 40);
@@ -170,7 +137,7 @@ public class Smartphone {
 		final JPanel panelGallerie = new JPanel();
 		panelGallerie.setBackground(Color.DARK_GRAY);
 		panelGallerie.setBounds(15, 15, 450, 700);
-		frmSmartphone.getContentPane().add(panelGallerie);
+		frameSmartphone.getContentPane().add(panelGallerie);
 		panelGallerie.setVisible(false);
 		
 		
@@ -214,7 +181,7 @@ public class Smartphone {
 				
 		JLabel label = new JLabel("baborOS");
 		label.setBounds(649, 1172, 91, 29);
-		frmSmartphone.getContentPane().add(label);
+		frameSmartphone.getContentPane().add(label);
 		label.setForeground(Color.LIGHT_GRAY);
 		
 		JButton buttonMenu = new JButton("Menu");
@@ -227,11 +194,11 @@ public class Smartphone {
 			}
 		});
 		buttonMenu.setBounds(215, 750, 50, 20);
-		frmSmartphone.getContentPane().add(buttonMenu);
+		frameSmartphone.getContentPane().add(buttonMenu);
 		
 		JLabel fondEcran = new JLabel("");
 		fondEcran.setBounds(15, 15, 450, 700);
-		frmSmartphone.getContentPane().add(fondEcran);
+		frameSmartphone.getContentPane().add(fondEcran);
 		fondEcran.setIcon(new ImageIcon(Smartphone.class.getResource("/me/smartphone/icon/DSC_000001(1).JPG")));
 		
 		JButton btnFermer = new JButton("Fermer");
@@ -241,6 +208,6 @@ public class Smartphone {
 			}
 		});
 		btnFermer.setBounds(310, 742, 155, 37);
-		frmSmartphone.getContentPane().add(btnFermer);
+		frameSmartphone.getContentPane().add(btnFermer);
 	}
 }
