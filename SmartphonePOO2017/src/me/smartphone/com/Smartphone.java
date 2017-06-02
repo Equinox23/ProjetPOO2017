@@ -153,7 +153,7 @@ public class Smartphone {
 		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Domicile", "Bureau"}));
 		comboBox_2.setForeground(Color.WHITE);
 		comboBox_2.setBackground(Color.DARK_GRAY);
-		comboBox_2.setBounds(10, 404, 164, 70);
+		comboBox_2.setBounds(10, 390, 126, 40);
 		panelNewContact_1.add(comboBox_2);
 		
 		txtRue = new JTextField();
