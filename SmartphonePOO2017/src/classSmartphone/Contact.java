@@ -8,7 +8,6 @@ public class Contact {
 	private String lastname ;
 	private String firstname ;
 	private String birthdate ;
-	private String salut;
 	
 	public Contact(String lastname, String firstname, String birthdate) {
 		this.contactID = UUID.randomUUID();
