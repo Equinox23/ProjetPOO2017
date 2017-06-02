@@ -2,7 +2,6 @@ package me.smartphone.com;
 
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
 
 public class Smartphone {
