@@ -155,7 +155,7 @@ public class Smartphone {
 		buttonGallerie.setBounds(25, 25, 75, 75);
 		buttonGallerie.setForeground(Color.WHITE);
 		buttonGallerie.setBackground(new Color(0,0,0,0));
-		buttonGallerie.setIcon(new ImageIcon(Smartphone.class.getResource("/me/smartphone/icon/008-photo-camera.png")));
+		buttonGallerie.setIcon(new ImageIcon(Smartphone.class.getResource("/imgSmartphone/008-photo-camera.png")));
 		buttonGallerie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				panelGallerie.setVisible(true);
@@ -167,7 +167,7 @@ public class Smartphone {
 		JButton buttonContact = new JButton("");
 		buttonContact.setBounds(122, 25, 75, 75);
 		buttonContact.setBackground(new Color(0,0,0,0));
-		buttonContact.setIcon(new ImageIcon(Smartphone.class.getResource("/me/smartphone/icon/011-phone-book.png")));
+		buttonContact.setIcon(new ImageIcon(Smartphone.class.getResource("/imgSmartphone/011-phone-book.png")));
 		buttonContact.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				panelContact_1.setVisible(true);
@@ -198,7 +198,7 @@ public class Smartphone {
 		JLabel fondEcran = new JLabel("");
 		fondEcran.setBounds(15, 15, 450, 700);
 		frameSmartphone.getContentPane().add(fondEcran);
-		fondEcran.setIcon(new ImageIcon(Smartphone.class.getResource("/me/smartphone/icon/DSC_000001(1).JPG")));
+		fondEcran.setIcon(new ImageIcon(Smartphone.class.getResource("/imgSmartphone/DSC_000001(1).JPG")));
 		
 		JButton btnFermer = new JButton("Fermer");
 		btnFermer.addActionListener(new ActionListener() {
