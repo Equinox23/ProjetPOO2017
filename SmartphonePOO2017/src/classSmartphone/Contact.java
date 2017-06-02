@@ -1,19 +1,20 @@
 package classSmartphone;	
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class Contact {
-
+public class Contact implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	private UUID contactID ;
 	private String lastname ;
 	private String firstname ;
 	private String birthdate ;
 	
-	public Contact(String lastname, String firstname, String birthdate) {
+	public Contact(String lastname, String firstname) {
 		this.contactID = UUID.randomUUID();
 		this.lastname = lastname;
 		this.firstname = firstname;
-		this.birthdate = birthdate;
 	}
 	
 	public UUID getcontactID() {
