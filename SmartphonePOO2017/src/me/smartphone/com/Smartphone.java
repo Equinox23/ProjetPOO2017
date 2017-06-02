@@ -16,7 +16,7 @@ public class Smartphone {
 		frameSmartphone.getContentPane().setBackground(Color.BLACK);
 		frameSmartphone.setSize(480,800);
 		frameSmartphone.setUndecorated(true);
-		frameSmartphone.setLocationRelativeTo(null);
+		frameSmartphone.setLocationRelativeTo(null);		
 		
 		frameSmartphone.getContentPane().setLayout(null);
 				
