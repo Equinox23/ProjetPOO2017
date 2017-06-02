@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class FrameContact {
+public class FrameContact extends Smartphone {
 	protected JFrame frameContact;
 	
 	public FrameContact(){
@@ -23,9 +23,16 @@ public class FrameContact {
 		frameContact.setResizable(false);
 		frameContact.setTitle("Contact");
 		frameContact.getContentPane().setBackground(Color.DARK_GRAY);
-		frameContact.setBounds(15, 15, 450, 700);
+		frameContact.setSize(450, 700);
 		frameContact.setUndecorated(true);
-		frameContact.getContentPane().setLayout(null);
+		frameContact.setVisible(true);
+		
+		final JPanel panelContact = new JPanel();
+		panelContact.setBackground(Color.DARK_GRAY);
+		panelContact.setBounds(15, 15, 450, 700);
+		frameSmartphone.getContentPane().add(panelContact);
+		panelContact.setVisible(true);
+		panelContact.setLayout(null);
 		
 		final JPanel panelNewContact = new JPanel();
 		panelNewContact.setBackground(Color.DARK_GRAY);
@@ -49,6 +56,7 @@ public class FrameContact {
 			JButton AjouterPhoto = new JButton("+ Photo");
 			AjouterPhoto.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
+					System.out.println("lien vers photo");
 				}
 			});
 			AjouterPhoto.setBounds(10, 10, 140, 140);
