@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class Smartphone {
 	
-	//décalaration de la fr
+	//décalaration de la frame
 
 	private JFrame frmSmartphone;
 	private JPanel panelMenu;
@@ -53,7 +53,7 @@ public class Smartphone {
 		frmSmartphone.setResizable(false);
 		frmSmartphone.setTitle("Smartphone");
 		frmSmartphone.getContentPane().setBackground(Color.BLACK);
-		frmSmartphone.setSize(770,1480);
+		frmSmartphone.setSize(450,740);
 		frmSmartphone.setLocationRelativeTo(null);;
 		
 		
@@ -276,7 +276,7 @@ public class Smartphone {
 		panelContact_1.add(btnAjouterContact);
 		
 		JLabel fondEcran = new JLabel("");
-		fondEcran.setBounds(25, 25, 720, 1280);
+		fondEcran.setBounds(25, 25, 300, 540);
 		frmSmartphone.getContentPane().add(fondEcran);
 		fondEcran.setIcon(new ImageIcon(Smartphone.class.getResource("/me/smartphone/icon/DSC_000001(1).JPG")));
 	}
