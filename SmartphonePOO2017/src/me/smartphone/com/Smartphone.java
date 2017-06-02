@@ -15,12 +15,6 @@ public class Smartphone {
 	private JPanel panelGallerie;
 	private JPanel panelNewContact;
 	private JTextField txtRue;
-	private JTextField txtVille;
-	private JTextField txtCode;
-	private JTextField txtNo;
-	private JTextField txtCp;
-	private JTextField txtPays;
-	private JTextField txtEcrivezIci;
 
 	/**
 	 * Launch the application.
@@ -59,8 +53,20 @@ public class Smartphone {
 		
 		
 		frmSmartphone.getContentPane().setLayout(null);
+				
+		final JPanel panelMenu = new JPanel();
+		panelMenu.setBackground(new Color(0,0,0,150));
+		panelMenu.setBounds(15, 15, 450, 700);
+		frmSmartphone.getContentPane().add(panelMenu);
+		panelMenu.setVisible(false);
 		
-
+		final JPanel panelContact_1 = new JPanel();
+		panelContact_1.setBackground(Color.DARK_GRAY);
+		panelContact_1.setBounds(15, 15, 450, 700);
+		frmSmartphone.getContentPane().add(panelContact_1);
+		panelContact_1.setVisible(false);
+		panelContact_1.setLayout(null);
+		
 		final JPanel panelNewContact_1 = new JPanel();
 		panelNewContact_1.setBackground(Color.DARK_GRAY);
 		panelNewContact_1.setBounds(15, 15, 450, 700);
@@ -158,62 +164,26 @@ public class Smartphone {
 		
 		txtRue = new JTextField();
 		txtRue.setText("Rue");
-		txtRue.setBounds(244, 728, 321, 70);
+		txtRue.setBounds(166, 391, 262, 40);
 		panelNewContact_1.add(txtRue);
 		
-		txtVille = new JTextField();
-		txtVille.setText("Ville");
-		txtVille.setBounds(244, 810, 321, 70);
-		panelNewContact_1.add(txtVille);
-		
-		txtCode = new JTextField();
-		txtCode.setText("R\u00E9gion");
-		txtCode.setBounds(244, 892, 223, 70);
-		panelNewContact_1.add(txtCode);
-		
-		txtNo = new JTextField();
-		txtNo.setText("No");
-		txtNo.setBounds(571, 728, 126, 70);
-		panelNewContact_1.add(txtNo);
-		
-		txtCp = new JTextField();
-		txtCp.setText("CP");
-		txtCp.setBounds(571, 810, 126, 70);
-		panelNewContact_1.add(txtCp);
-		
-		txtPays = new JTextField();
-		txtPays.setText("Pays");
-		txtPays.setBounds(471, 892, 223, 70);
-		panelNewContact_1.add(txtPays);
-		
-		JLabel lblNote = new JLabel("Note");
-		lblNote.setForeground(Color.WHITE);
-		lblNote.setBounds(32, 986, 229, 29);
-		panelNewContact_1.add(lblNote);
-		
-		txtEcrivezIci = new JTextField();
-		txtEcrivezIci.setText("Ecrivez ici");
-		txtEcrivezIci.setBounds(22, 1039, 672, 125);
-		panelNewContact_1.add(txtEcrivezIci);
-				
-		final JPanel panelMenu = new JPanel();
-		panelMenu.setBackground(new Color(0,0,0,150));
-		panelMenu.setBounds(15, 15, 450, 700);
-		frmSmartphone.getContentPane().add(panelMenu);
-		panelMenu.setVisible(false);
-		
-		final JPanel panelContact_1 = new JPanel();
-		panelContact_1.setBackground(Color.DARK_GRAY);
-		panelContact_1.setBounds(15, 15, 450, 700);
-		frmSmartphone.getContentPane().add(panelContact_1);
-		panelContact_1.setVisible(false);
-		panelContact_1.setLayout(null);
-					
 		final JPanel panelGallerie = new JPanel();
 		panelGallerie.setBackground(Color.DARK_GRAY);
 		panelGallerie.setBounds(15, 15, 450, 700);
 		frmSmartphone.getContentPane().add(panelGallerie);
 		panelGallerie.setVisible(false);
+		
+		
+		JButton btnAjouterContact = new JButton("Ajouter Contact");
+		btnAjouterContact.setBounds(0, 0, 197, 37);
+		panelContact_1.add(btnAjouterContact);
+		btnAjouterContact.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panelNewContact_1.setVisible(true);
+				panelContact_1.setVisible(false);
+			}
+		});			
+		
 		
 		JButton buttonGallerie = new JButton("");
 		buttonGallerie.setBounds(25, 25, 75, 75);
@@ -241,18 +211,6 @@ public class Smartphone {
 		panelMenu.setLayout(null);
 		panelMenu.add(buttonGallerie);
 		panelMenu.add(buttonContact);
-		
-		
-		
-		JButton btnAjouterContact = new JButton("Ajouter Contact");
-		btnAjouterContact.setBounds(147, 612, 197, 37);
-		panelMenu.add(btnAjouterContact);
-		btnAjouterContact.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panelNewContact.setVisible(true);
-				panelContact_1.setVisible(false);
-			}
-		});
 				
 		JLabel label = new JLabel("baborOS");
 		label.setBounds(649, 1172, 91, 29);
