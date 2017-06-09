@@ -1,10 +1,10 @@
 package classSmartphone;
 
-public class Testframe extends Smartphone{
+public class Testframe {
 
 	public static void main(String[] args) {
-		FrameMenu window = new FrameMenu();
-		window.frameMenu.setVisible(false);
+		Smartphone window = new Smartphone();
+		window.frameSmartphone.setVisible(true);
 	}
 }
 //
