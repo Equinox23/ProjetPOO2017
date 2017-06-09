@@ -4,11 +4,18 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Smartphone {
+public class Smartphone extends JFrame{
 	
-	protected JFrame frameSmartphone;
+	protected JFrame frameSmartphone;	
+
 
 	public Smartphone() {
+		
+		/*
+		 * Frame principale accueillant 
+		 * - les différents panel des fonctions 
+		 * - les fonctions communes 
+		 */		
 
 		frameSmartphone = new JFrame();
 		frameSmartphone.setResizable(false);
@@ -18,34 +25,94 @@ public class Smartphone {
 		frameSmartphone.setUndecorated(true);
 		frameSmartphone.setLocationRelativeTo(null);		
 		frameSmartphone.getContentPane().setLayout(null);
+		
+		/*
+		 *  Panel menu permet de séléctionner les fonctions 
+		 */
 				
 		final JPanel panelMenu = new JPanel();
 		panelMenu.setBackground(new Color(0,0,0,150));
 		panelMenu.setBounds(15, 15, 450, 700);
 		frameSmartphone.getContentPane().add(panelMenu);
-		panelMenu.setVisible(true);
+		panelMenu.setVisible(true);		
 		
-		final JPanel panelContact_1 = new JPanel();
-		panelContact_1.setBackground(Color.DARK_GRAY);
-		panelContact_1.setBounds(15, 15, 450, 700);
-		frameSmartphone.getContentPane().add(panelContact_1);
-		panelContact_1.setVisible(false);
-		panelContact_1.setLayout(null);
+		/*
+		 * Panel contact permet de séléctionner l'application contact 
+		 */
 		
-		final JPanel panelNewContact_1 = new JPanel();
-		panelNewContact_1.setBackground(Color.DARK_GRAY);
-		panelNewContact_1.setBounds(15, 15, 450, 700);
-		frameSmartphone.getContentPane().add(panelNewContact_1);
-		panelNewContact_1.setLayout(null);
-		panelNewContact_1.setVisible(false);
+		final JPanel panelContact = new JPanel();
+		panelContact.setBackground(Color.DARK_GRAY);
+		panelContact.setBounds(15, 15, 450, 700);
+		frameSmartphone.getContentPane().add(panelContact);
+		panelContact.setVisible(false);
+		panelContact.setLayout(null);
+				
+		final JPanel panelNewContact = new JPanel();
+		panelNewContact.setBackground(Color.DARK_GRAY);
+		panelNewContact.setBounds(15, 15, 450, 700);
+		panelContact.getRootPane().add(panelNewContact);
+		panelNewContact.setLayout(null);
+		panelNewContact.setVisible(false);
+
+		/*
+		 * Panel contact permet de séléctionner l'application Gallerie 
+		 */
 		
+		final JPanel panelGallerie = new JPanel();
+		panelGallerie.setBackground(Color.DARK_GRAY);
+		panelGallerie.setBounds(15, 15, 450, 700);
+		frameSmartphone.getContentPane().add(panelGallerie);
+		panelGallerie.setVisible(false);
+		panelGallerie.setLayout(null);
+		
+		JPanel Grille = new JPanel();
+		Grille.setBackground(Color.DARK_GRAY);
+		Grille.setBounds(10, 11, 430, 575);
+		panelGallerie.add(Grille);
+		Grille.setLayout(null);
+		
+		JButton btnNewButton_1 = new JButton("New button");
+		btnNewButton_1.setIcon(new ImageIcon(Smartphone.class.getResource("/imgGallerie/DSC_0187.JPG")));
+		btnNewButton_1.setBounds(10, 11, 130, 130);
+		Grille.add(btnNewButton_1);
+		
+		JButton button = new JButton("New button");
+		button.setIcon(new ImageIcon(Smartphone.class.getResource("/imgGallerie/DSC_0251.JPG")));
+		button.setBounds(150, 11, 130, 130);
+		Grille.add(button);
+		
+		JButton button_1 = new JButton("New button");
+		button_1.setIcon(new ImageIcon(Smartphone.class.getResource("/imgGallerie/DSC_0301.JPG")));
+		button_1.setBounds(290, 11, 130, 130);
+		Grille.add(button_1);
+		
+		JButton button_2 = new JButton("New button");
+		button_2.setBounds(10, 152, 130, 130);
+		Grille.add(button_2);
+		
+		JButton button_3 = new JButton("New button");
+		button_3.setBounds(150, 152, 130, 130);
+		Grille.add(button_3);
+		
+		JButton button_4 = new JButton("New button");
+		button_4.setBounds(290, 152, 130, 130);
+		Grille.add(button_4);
+		
+		JButton button_5 = new JButton("New button");
+		button_5.setBounds(10, 293, 130, 130);
+		Grille.add(button_5);
+		
+		JButton button_6 = new JButton("New button");
+		button_6.setBounds(10, 434, 130, 130);
+		Grille.add(button_6);
+		panelGallerie.setVisible(false);
 		JButton AjouterPhoto = new JButton("+ Photo");
 		AjouterPhoto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
 		AjouterPhoto.setBounds(10, 10, 140, 140);
-		panelNewContact_1.add(AjouterPhoto);
+		panelNewContact.add(AjouterPhoto);
 		
 		JTextField txtfldTel = new JTextField();
 		txtfldTel.setText("Téléphone");
@@ -56,7 +123,7 @@ public class Smartphone {
 		    	txtfldTel.setText("");
 		    }
 		});
-		panelNewContact_1.add(txtfldTel);
+		panelNewContact.add(txtfldTel);
 		
 		JTextField txtfldPrnom = new JTextField();
 		txtfldPrnom.setText("Prénom ");
@@ -67,7 +134,7 @@ public class Smartphone {
 		    	txtfldPrnom.setText("");
 		    }
 		});
-		panelNewContact_1.add(txtfldPrnom);
+		panelNewContact.add(txtfldPrnom);
 		
 		JTextField txtfldNom = new JTextField();
 		txtfldNom.setText("Nom ");
@@ -78,7 +145,7 @@ public class Smartphone {
 		    	txtfldNom.setText("");
 		    }
 		});
-		panelNewContact_1.add(txtfldNom);
+		panelNewContact.add(txtfldNom);
 		
 		JTextField txtfldMail = new JTextField();
 		txtfldMail.setText("E-Mail");
@@ -89,64 +156,59 @@ public class Smartphone {
 		    	txtfldMail.setText("");
 		    }
 		});
-		panelNewContact_1.add(txtfldMail);
+		panelNewContact.add(txtfldMail);
 		
-		JLabel lblTlphone = new JLabel("T\u00E9l\u00E9phone");
+		JLabel lblTlphone = new JLabel("Téléphone");
 		lblTlphone.setForeground(Color.WHITE);
 		lblTlphone.setBounds(20, 158, 154, 29);
-		panelNewContact_1.add(lblTlphone);
+		panelNewContact.add(lblTlphone);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Mobile", "Bureau", "Domicile"}));
 		comboBox.setForeground(Color.WHITE);
 		comboBox.setBackground(Color.DARK_GRAY);
 		comboBox.setBounds(10, 196, 126, 40);
-		panelNewContact_1.add(comboBox);
+		panelNewContact.add(comboBox);
 		
 		JLabel lblEmail = new JLabel("Email");
 		lblEmail.setForeground(Color.WHITE);
 		lblEmail.setBounds(20, 249, 154, 29);
-		panelNewContact_1.add(lblEmail);
+		panelNewContact.add(lblEmail);
 		
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Domicile", "Bureau"}));
 		comboBox_1.setForeground(Color.WHITE);
 		comboBox_1.setBackground(Color.DARK_GRAY);
 		comboBox_1.setBounds(10, 287, 126, 40);
-		panelNewContact_1.add(comboBox_1);
+		panelNewContact.add(comboBox_1);
 		
 		JLabel lblAdressePostale = new JLabel("Adresse postale");
 		lblAdressePostale.setForeground(Color.WHITE);
 		lblAdressePostale.setBounds(20, 351, 229, 29);
-		panelNewContact_1.add(lblAdressePostale);
+		panelNewContact.add(lblAdressePostale);
 		
 		JComboBox comboBox_2 = new JComboBox();
 		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Domicile", "Bureau"}));
 		comboBox_2.setForeground(Color.WHITE);
 		comboBox_2.setBackground(Color.DARK_GRAY);
 		comboBox_2.setBounds(10, 390, 126, 40);
-		panelNewContact_1.add(comboBox_2);
+		panelNewContact.add(comboBox_2);
 		
 		JTextField txtRue = new JTextField();
 		txtRue = new JTextField();
 		txtRue.setText("Rue");
 		txtRue.setBounds(166, 391, 262, 40);
-		panelNewContact_1.add(txtRue);
+		panelNewContact.add(txtRue);
 		
-		final JPanel panelGallerie = new JPanel();
-		panelGallerie.setBackground(Color.DARK_GRAY);
-		panelGallerie.setBounds(15, 15, 450, 700);
-		frameSmartphone.getContentPane().add(panelGallerie);
-		panelGallerie.setVisible(false);
-		
+			
 		
 		JButton btnAjouterContact = new JButton("Ajouter Contact");
 		btnAjouterContact.setBounds(0, 0, 197, 37);
-		panelContact_1.add(btnAjouterContact);
+		panelContact.add(btnAjouterContact);
 		btnAjouterContact.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelNewContact_1.setVisible(true);
-				panelContact_1.setVisible(false);
+				panelNewContact.setVisible(true);
+				panelContact.setVisible(false);
 			}
 		});			
 		
@@ -170,7 +232,7 @@ public class Smartphone {
 		buttonContact.setIcon(new ImageIcon(Smartphone.class.getResource("/imgSmartphone/011-phone-book.png")));
 		buttonContact.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				panelContact_1.setVisible(true);
+				panelContact.setVisible(true);
 				panelMenu.setVisible(false);
 			}
 		});
@@ -187,9 +249,9 @@ public class Smartphone {
 		buttonMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				panelMenu.setVisible(true);
-				panelContact_1.setVisible(false);
+				panelContact.setVisible(false);
 				panelGallerie.setVisible(false);
-				panelNewContact_1.setVisible(false);
+				panelNewContact.setVisible(false);
 			}
 		});
 		buttonMenu.setBounds(215, 750, 50, 20);
@@ -208,5 +270,6 @@ public class Smartphone {
 		});
 		btnFermer.setBounds(310, 742, 155, 37);
 		frameSmartphone.getContentPane().add(btnFermer);
+		
 	}
 }
