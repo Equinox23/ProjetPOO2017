@@ -94,7 +94,19 @@ public class MainFrame {
 		panelMenu.setLayout(null);
 		
 		/*Création du bouton "Menu"*/
-		JButton buttonMenu = new JButton("Menu");
+		JButton buttonMenu = new JButton();
+		buttonMenu.setBounds(190, 682, 50, 50);
+		buttonMenu.setBackground(Color.black);
+		buttonMenu.setBorder(null);
+		buttonMenu.setIcon(new ImageIcon(MainFrame.class.getResource("/Images/home.png")));
+		buttonMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent e) {
+		    	buttonMenu.setBackground(Color.GRAY);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent e) {
+		    	buttonMenu.setBackground(Color.black);
+		    }
+		});
 		buttonMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panelMenu.setVisible(true);
@@ -103,14 +115,67 @@ public class MainFrame {
 				panelNewContact.setVisible(false);
 			}
 		});
-		buttonMenu.setBounds(180, 680, 50, 20);
 		frameSmartphone.getContentPane().add(buttonMenu);
+		
+		/*Création du bouton "Fermer"*/
+		JButton buttonFermer = new JButton();
+		buttonFermer.setBounds(280, 682, 50, 50);
+		buttonFermer.setBackground(Color.black);
+		buttonFermer.setBorder(null);
+		buttonFermer.setIcon(new ImageIcon(MainFrame.class.getResource("/Images/shutdown.png")));
+		buttonFermer.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent e) {
+		    	buttonFermer.setBackground(Color.GRAY);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent e) {
+		    	buttonFermer.setBackground(Color.black);
+		    }
+		});
+		buttonFermer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+		frameSmartphone.getContentPane().add(buttonFermer);
+		
+		/*Création du bouton "Verrouiller"*/
+		JButton buttonVerrouiller = new JButton();
+		buttonVerrouiller.setBounds(100, 682, 50, 50);
+		buttonVerrouiller.setBackground(Color.black);
+		buttonVerrouiller.setBorder(null);
+		buttonVerrouiller.setIcon(new ImageIcon(MainFrame.class.getResource("/Images/verrouiller.png")));
+		buttonVerrouiller.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent e) {
+		    	buttonVerrouiller.setBackground(Color.GRAY);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent e) {
+		    	buttonVerrouiller.setBackground(Color.black);
+		    }
+		});
+		buttonVerrouiller.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panelMenu.setVisible(false);
+				panelContact.setVisible(false);
+				galeriePhoto.setVisible(false);
+				panelNewContact.setVisible(false);
+			}
+		});
+		frameSmartphone.getContentPane().add(buttonVerrouiller);
 		
 		/*Création du bouton "Accès galerie photo"*/
 		JButton buttonGaleriePhoto = new JButton();
 		buttonGaleriePhoto.setBounds(25, 25, 100, 100);
-		buttonGaleriePhoto.setBackground(new Color(1));
+		buttonGaleriePhoto.setBackground(Color.black);
+		buttonGaleriePhoto.setBorder(null);
 		buttonGaleriePhoto.setIcon(new ImageIcon(MainFrame.class.getResource("/Images/logoPhoto.png")));
+		buttonGaleriePhoto.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent e) {
+		    	buttonGaleriePhoto.setBackground(Color.GRAY);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent e) {
+		    	buttonGaleriePhoto.setBackground(Color.black);
+		    }
+		});
 		buttonGaleriePhoto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				galeriePhoto.setVisible(true);
@@ -122,8 +187,17 @@ public class MainFrame {
 		/*Création du bouton "Accès aux contacts"*/
 		JButton buttonContact = new JButton();
 		buttonContact.setBounds(150, 25, 100, 100);
-		buttonContact.setBackground(new Color(1));
+		buttonContact.setBackground(Color.black);
+		buttonContact.setBorder(null);
 		buttonContact.setIcon(new ImageIcon(MainFrame.class.getResource("/Images/logoContact.png")));
+		buttonContact.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent e) {
+		    	buttonContact.setBackground(Color.GRAY);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent e) {
+		    	buttonContact.setBackground(Color.black);
+		    }
+		});
 		buttonContact.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panelContact.setVisible(true);
@@ -143,14 +217,6 @@ public class MainFrame {
 			}
 		});
 		
-		JButton btnFermer = new JButton("Fermer");
-		btnFermer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.exit(0);
-			}
-		});
-		btnFermer.setBounds(220, 670, 155, 37);
-		frameSmartphone.getContentPane().add(btnFermer);
 	}
 }
 
