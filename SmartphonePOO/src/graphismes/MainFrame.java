@@ -2,18 +2,25 @@ package graphismes;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Vector;
+
 import javax.swing.*;
+import fonctionsSmartphone.*;
 
 public class MainFrame {
 	
 	protected JFrame frameSmartphone;
-
+	public static JScrollPane scrollPane;
+	public static MyList<Contact> listContact;
+	
 	public MainFrame() {
+		
+		/*Chargement de la liste des contacts à l'ouverture*/
+		ContactList.listContact= ContactList.ChargerListContact();
 
 		/*Définition de la trame de fond*/
 		frameSmartphone = new JFrame();
 		frameSmartphone.setResizable(false);
-		frameSmartphone.setTitle("Smartphone");
 		frameSmartphone.getContentPane().setBackground(Color.BLACK);
 		frameSmartphone.setSize(430,750);
 		frameSmartphone.setUndecorated(true);
@@ -31,14 +38,9 @@ public class MainFrame {
 		frameSmartphone.getContentPane().add(panelMenu);
 		panelMenu.setVisible(false);
 		
-		JLabel fondEcran = new JLabel();
-		fondEcran.setBounds(15, 15, 400, 650);
-		frameSmartphone.getContentPane().add(fondEcran);
-		fondEcran.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/fondEcran.jpg")));
-		
 		/*Création du panel contact*/
 		final JPanel panelContact = new JPanel();
-		panelContact.setBackground(Color.DARK_GRAY);
+		panelContact.setBackground(new Color(0,0,0,150));
 		panelContact.setBounds(15, 15, 400, 650);
 		frameSmartphone.getContentPane().add(panelContact);
 		panelContact.setVisible(false);
@@ -46,7 +48,7 @@ public class MainFrame {
 		
 		/*Création du panel nouveau contact*/
 		final JPanel panelNewContact = new JPanel();
-		panelNewContact.setBackground(Color.DARK_GRAY);
+		panelNewContact.setBackground(new Color(0,0,0,150));
 		panelNewContact.setBounds(15, 15, 400, 650);
 		frameSmartphone.getContentPane().add(panelNewContact);
 		panelNewContact.setVisible(false);
@@ -54,15 +56,27 @@ public class MainFrame {
 		
 		/*Création du panel galerie photo*/
 		final JPanel galeriePhoto = new JPanel();
-		galeriePhoto.setBackground(Color.DARK_GRAY);
+		galeriePhoto.setBackground(new Color(0,0,0,150));
 		galeriePhoto.setBounds(15, 15, 400, 650);
 		frameSmartphone.getContentPane().add(galeriePhoto);
 		galeriePhoto.setVisible(false);
 		panelContact.setLayout(null);
 		
+		JLabel fondEcran = new JLabel();
+		fondEcran.setBounds(15, 15, 400, 650);
+		frameSmartphone.getContentPane().add(fondEcran);
+		fondEcran.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/fondEcran.jpg")));
+		
 		/*-------------------------------------------------------------------------------------------------------------------*/
 		/*CREATION DE TOUT LES CHAMPS*/
 		/*-------------------------------------------------------------------------------------------------------------------*/
+		
+		
+		listContact = new MyList<Contact>(listContact,new Vector<Contact>(ContactList.listContact));
+		scrollPane = new JScrollPane(listContact);
+		scrollPane.setBorder(BorderFactory.createEmptyBorder());
+		scrollPane.setViewportView(listContact);
+		panelContact.add(scrollPane);
 		
 		/*Création des champs d'ajout de contact*/
 		JTextField txtPrenom = new JTextField();
@@ -207,9 +221,20 @@ public class MainFrame {
 		panelMenu.add(buttonContact);
 		
 		/*Création du bouton "Ajouter contact"*/
-		JButton buttonAjouterContact = new JButton("Ajouter Contact");
-		buttonAjouterContact.setBounds(0, 0, 197, 37);
+		JButton buttonAjouterContact = new JButton();
 		panelContact.add(buttonAjouterContact);
+		buttonAjouterContact.setBounds(10, 10, 75, 75);
+		buttonAjouterContact.setBackground(Color.black);
+		buttonAjouterContact.setBorder(null);
+		buttonAjouterContact.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/addcontact.png")));
+		buttonAjouterContact.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent e) {
+		    	buttonAjouterContact.setBackground(Color.GRAY);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent e) {
+		    	buttonAjouterContact.setBackground(Color.black);
+		    }
+		});
 		buttonAjouterContact.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panelNewContact.setVisible(true);
@@ -217,6 +242,25 @@ public class MainFrame {
 			}
 		});
 		
+		/*Création du bouton "Sauvegarder"*/
+		JButton buttonSave = new JButton("Sauver");
+		panelNewContact.add(buttonSave);
+		buttonSave.setBounds(10, 100, 75, 75);
+		buttonSave.setBackground(Color.black);
+		buttonSave.setBorder(null);
+		buttonSave.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent e) {
+		    	buttonSave.setBackground(Color.GRAY);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent e) {
+		    	buttonSave.setBackground(Color.black);
+		    }
+		});
+		buttonSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 	}
 }
 

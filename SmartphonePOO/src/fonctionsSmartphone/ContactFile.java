@@ -2,25 +2,11 @@ package fonctionsSmartphone;
 
 import java.io.*;
 import java.util.*;
-/**
- * Permet la serialization et la déserialisation de la class ListContact qui est une collections de Contact
- * Il n'y a pas de constructeur.
- * Deux méthodes : 
- * 	1. writeToFile pour l'écriture du fichier
- * 	2. readFromFile pour lire le fichier
- * @author Jacques
- * @category Contact
- * @see Contact
- * @see ListContact
- *
- */
+
+/*Permet la serialization et la déserialisation de la class ListContact qui est une collections de Contact*/
 public class ContactFile {
-	private String file = "Contact.serial";
-/**
- * Pour la métode d'écriture du fichier de sérialisation on passe un paramètre :
- * Une liste de contact
- * @param list
- */
+	private String file = "Contacts.serial";
+	
 	public void writeToFile(List<Contact> list) {
 		ObjectOutputStream outStream = null;
 		try {
@@ -43,10 +29,8 @@ public class ContactFile {
 			}
 		}
 	}
-/**
- * La métode de lecture du fichier retourne une liste de contact
- * @return List<Contact>
- */
+	
+	/*La métode de lecture du fichier retourne une liste de contact*/
 	public List<Contact> readFromFile() {
 		List<Contact> list = new ArrayList<>();
 		ObjectInputStream inputStream = null;
