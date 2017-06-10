@@ -1,4 +1,4 @@
-package Smartphone;
+package graphismes;
 
 public class TestTextImpose {
 	

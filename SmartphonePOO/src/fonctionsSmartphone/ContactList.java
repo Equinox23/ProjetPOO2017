@@ -1,4 +1,4 @@
-package Fonctions;
+package fonctionsSmartphone;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,7 +27,7 @@ public class ContactList {
 
 	/*Désérialisation de la liste*/
 	public static List<Contact> ChargerListContact() {
-		Fonctions.ContactFile cfs = new ContactFile();
+		fonctions.ContactFile cfs = new ContactFile();
 		List<Contact> lstContact = cfs.readFromFile();
 		return lstContact;
 	}
@@ -35,7 +35,6 @@ public class ContactList {
 	/* Sauver (sérialiser) tous les contacts*/
 	public static void SauverListContact(List<Contact> plstContact) {
 		ListContact.lstContact = plstContact;
-		lstContact = TrierList(lstContact);
 		// Sérialisation
 		classPhone.ContactFileStream cfs = new ContactFileStream();
 		cfs.writeToFile(lstContact);

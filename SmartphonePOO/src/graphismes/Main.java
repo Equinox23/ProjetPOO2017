@@ -1,4 +1,4 @@
-package Graphisme;
+package graphismes;
 
 public class Main extends MainFrame {
 

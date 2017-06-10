@@ -1,4 +1,4 @@
-package Graphisme;
+package graphismes;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -34,7 +34,7 @@ public class MainFrame {
 		JLabel fondEcran = new JLabel();
 		fondEcran.setBounds(15, 15, 400, 650);
 		frameSmartphone.getContentPane().add(fondEcran);
-		fondEcran.setIcon(new ImageIcon(MainFrame.class.getResource("/Images/fondEcran.jpg")));
+		fondEcran.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/fondEcran.jpg")));
 		
 		/*Création du panel contact*/
 		final JPanel panelContact = new JPanel();
@@ -98,7 +98,7 @@ public class MainFrame {
 		buttonMenu.setBounds(190, 682, 50, 50);
 		buttonMenu.setBackground(Color.black);
 		buttonMenu.setBorder(null);
-		buttonMenu.setIcon(new ImageIcon(MainFrame.class.getResource("/Images/home.png")));
+		buttonMenu.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/home.png")));
 		buttonMenu.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent e) {
 		    	buttonMenu.setBackground(Color.GRAY);
@@ -122,7 +122,7 @@ public class MainFrame {
 		buttonFermer.setBounds(280, 682, 50, 50);
 		buttonFermer.setBackground(Color.black);
 		buttonFermer.setBorder(null);
-		buttonFermer.setIcon(new ImageIcon(MainFrame.class.getResource("/Images/shutdown.png")));
+		buttonFermer.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/shutdown.png")));
 		buttonFermer.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent e) {
 		    	buttonFermer.setBackground(Color.GRAY);
@@ -143,7 +143,7 @@ public class MainFrame {
 		buttonVerrouiller.setBounds(100, 682, 50, 50);
 		buttonVerrouiller.setBackground(Color.black);
 		buttonVerrouiller.setBorder(null);
-		buttonVerrouiller.setIcon(new ImageIcon(MainFrame.class.getResource("/Images/verrouiller.png")));
+		buttonVerrouiller.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/verrouiller.png")));
 		buttonVerrouiller.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent e) {
 		    	buttonVerrouiller.setBackground(Color.GRAY);
@@ -167,7 +167,7 @@ public class MainFrame {
 		buttonGaleriePhoto.setBounds(25, 25, 100, 100);
 		buttonGaleriePhoto.setBackground(Color.black);
 		buttonGaleriePhoto.setBorder(null);
-		buttonGaleriePhoto.setIcon(new ImageIcon(MainFrame.class.getResource("/Images/logoPhoto.png")));
+		buttonGaleriePhoto.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/logoPhoto.png")));
 		buttonGaleriePhoto.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent e) {
 		    	buttonGaleriePhoto.setBackground(Color.GRAY);
@@ -189,7 +189,7 @@ public class MainFrame {
 		buttonContact.setBounds(150, 25, 100, 100);
 		buttonContact.setBackground(Color.black);
 		buttonContact.setBorder(null);
-		buttonContact.setIcon(new ImageIcon(MainFrame.class.getResource("/Images/logoContact.png")));
+		buttonContact.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/logoContact.png")));
 		buttonContact.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent e) {
 		    	buttonContact.setBackground(Color.GRAY);

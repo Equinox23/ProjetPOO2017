@@ -1,4 +1,4 @@
-package Fonctions;
+package fonctionsSmartphone;
 
 import java.io.Serializable;
 import java.util.UUID;

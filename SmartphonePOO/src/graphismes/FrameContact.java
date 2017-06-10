@@ -1,4 +1,4 @@
-package Smartphone;
+package graphismes;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;

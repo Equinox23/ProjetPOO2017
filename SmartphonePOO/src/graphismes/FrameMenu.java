@@ -1,4 +1,4 @@
-package Smartphone;
+package graphismes;
 
 import java.awt.*;
 import java.awt.event.*;

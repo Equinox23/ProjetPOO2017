@@ -1,4 +1,4 @@
-package Fonctions;
+package fonctionsSmartphone;
 
 import java.io.*;
 import java.util.*;
