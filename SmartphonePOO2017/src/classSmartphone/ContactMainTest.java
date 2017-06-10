@@ -10,7 +10,7 @@ public class ContactMainTest {
 		
 		try {
 			// création d'un nouveau contact
-			Contact p = new Contact("Balet", "Pierre");
+			Contact p = new Contact("Bornatici", "Valentin");
 			
 			System.out.println("Création de : " + p.getLastname() + " " + p.getFirstname());
 
