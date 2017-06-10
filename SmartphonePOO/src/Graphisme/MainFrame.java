@@ -109,7 +109,7 @@ public class MainFrame {
 		/*Création du bouton "Accès galerie photo"*/
 		JButton buttonGaleriePhoto = new JButton();
 		buttonGaleriePhoto.setBounds(25, 25, 100, 100);
-		buttonGaleriePhoto.setBackground(new Color(0,0,0,0));
+		buttonGaleriePhoto.setBackground(new Color(1));
 		buttonGaleriePhoto.setIcon(new ImageIcon(MainFrame.class.getResource("/Images/logoPhoto.png")));
 		buttonGaleriePhoto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -122,8 +122,8 @@ public class MainFrame {
 		/*Création du bouton "Accès aux contacts"*/
 		JButton buttonContact = new JButton();
 		buttonContact.setBounds(150, 25, 100, 100);
-		buttonContact.setBackground(new Color(0,0,0,0));
-		buttonContact.setIcon(new ImageIcon(MainFrame.class.getResource("/Images/fondEcran.jpg")));
+		buttonContact.setBackground(new Color(1));
+		buttonContact.setIcon(new ImageIcon(MainFrame.class.getResource("/Images/logoContact.png")));
 		buttonContact.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panelContact.setVisible(true);
