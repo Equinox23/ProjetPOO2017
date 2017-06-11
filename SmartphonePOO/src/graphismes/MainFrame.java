@@ -81,7 +81,7 @@ public class MainFrame {
 		/*Création des champs d'ajout de contact*/
 		JTextField txtPrenom = new JTextField();
 		txtPrenom.setText("Prénom ");
-		txtPrenom.setBounds(166, 10, 262, 54);
+		txtPrenom.setBounds(10, 10, 40, 10);
 		txtPrenom.addFocusListener(new FocusAdapter() {
 		    @Override
 		    public void focusGained(FocusEvent e) {
@@ -92,7 +92,7 @@ public class MainFrame {
 		
 		JTextField txtNom = new JTextField();
 		txtNom.setText("Nom ");
-		txtNom.setBounds(166, 80, 262, 54);
+		txtNom.setBounds(10, 10, 40, 10);
 		txtNom.addFocusListener(new FocusAdapter() {
 		    @Override
 		    public void focusGained(FocusEvent e) {
