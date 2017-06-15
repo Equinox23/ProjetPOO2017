@@ -754,7 +754,7 @@ public class MainFrame {
 		/*Ajout de l'action du bouton*/
 		profilpicture1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				super(new BoutonImg[MainFrame.galerie.getNombreImg()]);
+				
 			}
 		});
 		
