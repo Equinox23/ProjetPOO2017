@@ -17,6 +17,10 @@ public class Contact implements Serializable {
 		this.firstname = firstname;
 	}
 	
+	public Contact() {
+		
+	}
+	
 	public String getLastname() {
 		return lastname;
 	}
