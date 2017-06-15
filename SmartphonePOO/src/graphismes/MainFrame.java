@@ -27,10 +27,25 @@ public class MainFrame {
 	private JPanel panelContact;
 	private JPanel panelMenu;
 	private JPanel panelNewContact;
-	private JLabel fondEcran;
+	private JPanel panelModifDeleteContact;
 	
-	private JTextField firstNamef;
-	private JTextField lastNamef;
+
+	private JLabel fondEcran;
+	private JLabel labelFirstName1;
+	private JLabel labelLastName1;
+	private JLabel labelFirstName2;
+	private JLabel labelLastName2;
+	private JLabel labelphonenumber1;
+	private JLabel labelphonenumber2;
+	
+	private JScrollPane listScroller;
+	
+	private JTextField firstNamef1;
+	private JTextField lastNamef1;
+	private JTextField firstNamef2;
+	private JTextField lastNamef2;
+	private JTextField phonenumber1;
+	private JTextField phonenumber2;
 	
 	private JButton buttonMenu;
 	private JButton buttonFermer;
@@ -39,8 +54,16 @@ public class MainFrame {
 	private JButton buttonContact;
 	private JButton buttonAjouterContact;
 	private JButton buttonSave;
+	private JButton buttonDelete;
+	private JButton buttonModify;
+	private JButton cancelNewContact;
+	private JButton cancelModification;
+	
+	private Font font;
+	private Font fontBold;
 	
 	private JList jlistContact ;
+	int contactencours;
 	
 	public MainFrame() throws ClassNotFoundException, IOException {
 		
@@ -49,7 +72,11 @@ public class MainFrame {
 		ContactFile.DownloadDataContact("./BDDContacts",arraylistContact);
 		
 		jlistContact = new JList(arraylistContact.toArray());
+		
 		Contact newContact = new Contact();
+		
+		font = new Font("Roboto", Font.PLAIN, 15);
+		fontBold = new Font("Roboto", Font.BOLD, 15);
 		
 		/*Définition de la trame de fond*/
 		frameSmartphone = new JFrame();
@@ -87,6 +114,14 @@ public class MainFrame {
 		panelNewContact.setLayout(null);
 		panelNewContact.setBounds(15, 15, 400, 650);
 		
+	/*Création du panel nouveau contact*/
+		panelModifDeleteContact = new JPanel();
+		panelModifDeleteContact.setBackground(new Color(0,0,0,150));
+		frameSmartphone.getContentPane().add(panelModifDeleteContact);
+		panelModifDeleteContact.setVisible(false);
+		panelModifDeleteContact.setLayout(null);
+		panelModifDeleteContact.setBounds(15, 15, 400, 650);
+		
 	/*Création du panel galerie photo*/
 //		galeriePhoto = new JPanel();
 //		galeriePhoto.setBackground(new Color(0,0,0,150));
@@ -107,14 +142,78 @@ public class MainFrame {
 	/*Création des champs d'ajout de contact*/
 		
 		/*Prénom*/
-		firstNamef = new JTextField();
-		panelNewContact.add(firstNamef);
-		firstNamef.setBounds(20, 200, 100, 30);
+		firstNamef1 = new JTextField();
+		panelNewContact.add(firstNamef1);
+		firstNamef1.setFont(font);
+		firstNamef1.setBounds(100, 60, 290, 40);
+		
+		labelFirstName1 = new JLabel("Prénom");
+		labelFirstName1.setFont(fontBold);
+		panelNewContact.add(labelFirstName1);
+		labelFirstName1.setBounds(10, 60, 100, 40);
+		labelFirstName1.setForeground(Color.white);
 
 		/*Nom*/
-		lastNamef = new JTextField();
-		panelNewContact.add(lastNamef);
-		lastNamef.setBounds(20, 250, 100, 30);
+		lastNamef1 = new JTextField();
+		panelNewContact.add(lastNamef1);
+		lastNamef1.setFont(font);
+		lastNamef1.setBounds(100, 10, 290, 40);
+		
+		labelLastName1 = new JLabel("Nom");
+		labelLastName1.setFont(fontBold);
+		panelNewContact.add(labelLastName1);
+		labelLastName1.setBounds(10, 10, 100, 40);
+		labelLastName1.setForeground(Color.white);
+		
+		/*Téléphone*/
+		phonenumber1 = new JTextField();
+		panelNewContact.add(phonenumber1);
+		phonenumber1.setFont(font);
+		phonenumber1.setBounds(100, 110, 290, 40);
+		
+		labelphonenumber1 = new JLabel("Téléphone");
+		labelphonenumber1.setFont(fontBold);
+		panelNewContact.add(labelphonenumber1);
+		labelphonenumber1.setBounds(10, 110, 100, 40);
+		labelphonenumber1.setForeground(Color.white);
+		
+	/*Création des champs de modification de contact*/
+		
+		/*Prénom*/
+		firstNamef2 = new JTextField();
+		panelModifDeleteContact.add(firstNamef2);
+		firstNamef2.setFont(font);
+		firstNamef2.setBounds(100, 60, 290, 40);
+		
+		labelFirstName2 = new JLabel("Prénom");
+		labelFirstName2.setFont(fontBold);
+		panelModifDeleteContact.add(labelFirstName2);
+		labelFirstName2.setBounds(10, 60, 100, 40);
+		labelFirstName2.setForeground(Color.white);
+
+		/*Nom*/
+		lastNamef2 = new JTextField();
+		panelModifDeleteContact.add(lastNamef2);
+		lastNamef2.setFont(font);
+		lastNamef2.setBounds(100, 10, 290, 40);
+		
+		labelLastName2 = new JLabel("Nom");
+		labelLastName2.setFont(fontBold);
+		panelModifDeleteContact.add(labelLastName2);
+		labelLastName2.setBounds(10, 10, 100, 40);
+		labelLastName2.setForeground(Color.white);
+		
+		/*Téléphone*/
+		phonenumber2 = new JTextField();
+		panelModifDeleteContact.add(phonenumber2);
+		phonenumber2.setFont(font);
+		phonenumber2.setBounds(100, 110, 290, 40);
+		
+		labelphonenumber2 = new JLabel("Téléphone");
+		labelphonenumber2.setFont(fontBold);
+		panelModifDeleteContact.add(labelphonenumber2);
+		labelphonenumber2.setBounds(10, 110, 100, 40);
+		labelphonenumber2.setForeground(Color.white);
 		
 	/*Création des champs du menu contact*/
 		
@@ -123,22 +222,14 @@ public class MainFrame {
 		jlistContact.setBounds(0, 100, 400, 550);
 		jlistContact.setBackground(new Color(215,216,216));
 		jlistContact.setFixedCellHeight(45);
-		jlistContact.setBorder(new EmptyBorder(60, 40, 10, 10));
-		Font font = new Font("Roboto", Font.PLAIN, 15);
+		jlistContact.setBorder(new EmptyBorder(0, 10, 0, 10));
 		jlistContact.setFont(font);
 		
-		jlistContact.addListSelectionListener(new ListSelectionListener() {
-			@Override
-			public void valueChanged(ListSelectionEvent e) {
-				// TODO Auto-generated method stub
-
-				firstNamef.setText(arraylistContact.get(e.getLastIndex()).getFirstname());
-				lastNamef.setText(arraylistContact.get(e.getLastIndex()).getLastname());
-				
-				panelNewContact.setVisible(true);
-				panelContact.setVisible(false);
-			}
-		});
+		listScroller = new JScrollPane(jlistContact);
+		listScroller.setBounds(0, 100, 400, 550);
+		listScroller.getVerticalScrollBar();
+		jlistContact.setLayoutOrientation(JList.VERTICAL);
+		panelContact.add(listScroller);
 		
 /*-------------------------------------------------------------------------------------------------------------------*/
 /*CREATION DE TOUT LES BOUTONS*/
@@ -170,6 +261,7 @@ public class MainFrame {
 				panelContact.setVisible(false);
 				galeriePhoto.setVisible(false);
 				panelNewContact.setVisible(false);
+				panelModifDeleteContact.setVisible(false);
 			}
 		});
 		frameSmartphone.getContentPane().add(buttonMenu);
@@ -333,11 +425,12 @@ public class MainFrame {
 //			}
 //		});
 		
-		/*Création du bouton "Sauvegarder"*/
+	/*Création du bouton "Sauvegarder"*/
 		buttonSave = new JButton("Sauver");
+		buttonSave.setFont(fontBold);
 		panelNewContact.add(buttonSave);
-		buttonSave.setBounds(10, 500, 100, 100);
-		buttonSave.setBackground(Color.white);
+		buttonSave.setBounds(10, 590, 380, 50);
+		buttonSave.setBackground(Color.green);
 		buttonSave.setBorder(null);
 		
 		/*Ajout du hover au survol de la souris*/
@@ -346,7 +439,7 @@ public class MainFrame {
 		    	buttonSave.setBackground(Color.GRAY);
 		    }
 		    public void mouseExited(java.awt.event.MouseEvent e) {
-		    	buttonSave.setBackground(Color.white);
+		    	buttonSave.setBackground(Color.green);
 		    }
 		});
 		
@@ -354,8 +447,9 @@ public class MainFrame {
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					
-				newContact.setFirstname(firstNamef.getText());
-				newContact.setLastname(lastNamef.getText());
+				newContact.setFirstname(firstNamef1.getText());
+				newContact.setLastname(lastNamef1.getText());
+				newContact.setPhonenumber(phonenumber1.getText());
 				
 				arraylistContact.add(newContact);
 				
@@ -379,6 +473,181 @@ public class MainFrame {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}		
+			}
+		});
+		
+	/*Ajout de boutons sur le JList des contacts*/
+		jlistContact.addListSelectionListener(new ListSelectionListener() {
+			@Override
+			public void valueChanged(ListSelectionEvent selectedContact) {
+				
+				contactencours = selectedContact.getLastIndex();
+				
+				firstNamef2.setText(arraylistContact.get(selectedContact.getLastIndex()).getFirstname());
+				lastNamef2.setText(arraylistContact.get(selectedContact.getLastIndex()).getLastname());
+				phonenumber2.setText(arraylistContact.get(selectedContact.getLastIndex()).getPhonenumber());
+				
+				panelModifDeleteContact.setVisible(true);
+				panelContact.setVisible(false);
+				
+			}
+		});
+		
+	/*Création du bouton "Supprimer"*/
+		buttonDelete = new JButton("Supprimer");
+		buttonDelete.setForeground(Color.white);
+		buttonDelete.setFont(fontBold);
+		panelModifDeleteContact.add(buttonDelete);
+		buttonDelete.setBounds(10, 590, 380, 50);
+		buttonDelete.setBackground(Color.red);
+		buttonDelete.setBorder(null);
+		
+		/*Ajout du hover au survol de la souris*/
+		buttonDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent e) {
+		    	buttonDelete.setBackground(Color.GRAY);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent e) {
+		    	buttonDelete.setBackground(Color.red);
+		    }
+		});
+		
+		/*Ajout de l'action du bouton*/
+		buttonDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+						
+				newContact.setFirstname(firstNamef2.getText());
+				newContact.setLastname(lastNamef2.getText());
+				newContact.setPhonenumber(phonenumber2.getText());
+				
+				arraylistContact.remove(contactencours);
+				
+				/*sérialisation des contacts*/
+				try {
+					ContactFile.UploadDataContact(arraylistContact);
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+
+				/*Fermeture de la fenêtre actuelle afin de rafraîchir les données de la JList*/
+				frameSmartphone.dispose();
+				
+				/*Nouvelle ouverture du programme et chargement du panelContact*/
+				MainFrame mainFrame;
+				try {
+					mainFrame = new MainFrame();
+					mainFrame.frameSmartphone.setVisible(true);
+					mainFrame.panelContact.setVisible(true);
+				} catch (ClassNotFoundException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}		
+			}
+		});
+		
+		/*Création du bouton "Modifier"*/
+		buttonModify = new JButton("Modifier");
+		panelModifDeleteContact.add(buttonModify);
+		buttonModify.setFont(fontBold);
+		buttonModify.setBounds(10, 530, 380, 50);
+		buttonModify.setBackground(Color.green);
+		buttonModify.setBorder(null);
+		
+		/*Ajout du hover au survol de la souris*/
+		buttonModify.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent e) {
+		    	buttonModify.setBackground(Color.GRAY);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent e) {
+		    	buttonModify.setBackground(Color.green);
+		    }
+		});
+		
+		/*Ajout de l'action du bouton*/
+		buttonModify.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+						
+				newContact.setFirstname(firstNamef2.getText());
+				newContact.setLastname(lastNamef2.getText());
+				newContact.setPhonenumber(phonenumber2.getText());
+				
+				arraylistContact.remove(contactencours);
+				arraylistContact.add(newContact);
+				
+				/*sérialisation des contacts*/
+				try {
+					ContactFile.UploadDataContact(arraylistContact);
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+
+				/*Fermeture de la fenêtre actuelle afin de rafraîchir les données de la JList*/
+				frameSmartphone.dispose();
+				
+				/*Nouvelle ouverture du programme et chargement du panelContact*/
+				MainFrame mainFrame;
+				try {
+					mainFrame = new MainFrame();
+					mainFrame.frameSmartphone.setVisible(true);
+					mainFrame.panelContact.setVisible(true);
+				} catch (ClassNotFoundException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}		
+			}
+		});
+		
+		/*Création du bouton "Annuler" un nouveau contact*/
+		cancelNewContact = new JButton("Annuler");
+		panelNewContact.add(cancelNewContact);
+		cancelNewContact.setFont(fontBold);
+		cancelNewContact.setBounds(10, 530, 380, 50);
+		cancelNewContact.setBackground(Color.white);
+		cancelNewContact.setBorder(null);
+		
+		/*Ajout du hover au survol de la souris*/
+		cancelNewContact.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent e) {
+		    	cancelNewContact.setBackground(Color.GRAY);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent e) {
+		    	cancelNewContact.setBackground(Color.white);
+		    }
+		});
+		
+		/*Ajout de l'action du bouton*/
+		cancelNewContact.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+			panelNewContact.setVisible(false);
+			panelContact.setVisible(true);
+			}
+		});
+		
+		/*Création du bouton "Annuler" une modification/suppression*/
+		cancelModification = new JButton("Annuler");
+		panelModifDeleteContact.add(cancelModification);
+		cancelModification.setFont(fontBold);
+		cancelModification.setBounds(10, 470, 380, 50);
+		cancelModification.setBackground(Color.white);
+		cancelModification.setBorder(null);
+		
+		/*Ajout du hover au survol de la souris*/
+		cancelModification.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent e) {
+		    	cancelModification.setBackground(Color.GRAY);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent e) {
+		    	cancelModification.setBackground(Color.white);
+		    }
+		});
+		
+		/*Ajout de l'action du bouton*/
+		cancelModification.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					
+				panelModifDeleteContact.setVisible(false);
+				panelContact.setVisible(true);		
 			}
 		});
 	}

@@ -10,6 +10,7 @@ public class Contact implements Serializable {
 	private UUID contactID;
 	private String lastname;
 	private String firstname;
+	private String phonenumber;
 	
 	public Contact(String lastname, String firstname) {
 		this.contactID = UUID.randomUUID();
@@ -36,6 +37,14 @@ public class Contact implements Serializable {
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
+	
+	public String getPhonenumber() {
+		return phonenumber;
+	}
+
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
+	}
 
 	public UUID getContactID() {
 		return contactID;
@@ -47,7 +56,7 @@ public class Contact implements Serializable {
 
 	public String toString()
 	{
-		String toList = this.getFirstname()+" "+this.getLastname();
+		String toList = this.getLastname() + " " + this.getFirstname();
 		return toList;
 	}
 	

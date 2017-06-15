@@ -4,8 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * Extends de JButton
- * @author Jacques
+ * bouton pour miniatures
  */
 public class BoutonImg extends JButton {
 
@@ -20,12 +19,11 @@ public class BoutonImg extends JButton {
 	 */
 	public BoutonImg() {
 		super();
-		this.setPreferredSize(new Dimension(100,100));
+		this.setPreferredSize(new Dimension(10,100));
 		setStyle();
 	}
 	/**
 	 * Constructeur avec une chaine pour le nom du bouton
-	 * @param sText Text du bouton
 	 */
 	public BoutonImg(String sText) {
 		super.setText(sText);

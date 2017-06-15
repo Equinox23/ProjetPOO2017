@@ -33,7 +33,7 @@ public abstract class ImageList extends PanGalerieTop{
 	 * qui est rempli ici
 	 */
 	public ImageList(BoutonImg tblButtonIMG[]){
-		//super();
+		super();
 		this.tblButtonIMG=tblButtonIMG;
 		this.add(sp);
 		setAscenseurSP();
@@ -44,9 +44,9 @@ public abstract class ImageList extends PanGalerieTop{
 		sp.setVisible(true);
 		sp.setBorder(BorderFactory.createEmptyBorder());
 		sp.setWheelScrollingEnabled(true);
-		sp.getVerticalScrollBar().setUI(new MyScrollBarUI());	
-		sp.getHorizontalScrollBar().setUI(new MyScrollBarUI());
-		//sp.setPreferredSize(Settings.dim);
+//		sp.getVerticalScrollBar().setUI(new MyScrollBarUI());	
+//		sp.getHorizontalScrollBar().setUI(new MyScrollBarUI());
+		sp.setPreferredSize(new Dimension(420,555));
 	}
 	public void setSizeGUI(){
 		mpl.removeAll();

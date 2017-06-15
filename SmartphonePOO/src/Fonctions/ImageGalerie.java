@@ -24,7 +24,7 @@ import javax.swing.ImageIcon;
  */
 public class ImageGalerie {
 	private String nomIcon = new String("");
-	private Dimension dimIcon = new Dimension(133, 100);
+	private Dimension dimIcon = new Dimension(100, 100);
 	private ImageIcon imgIcon;
 	private int hintsIcon = Image.SCALE_DEFAULT; 
 	private boolean stretch = true;
