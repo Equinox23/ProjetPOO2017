@@ -5,6 +5,9 @@ import java.awt.event.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import fonctionsSmartphone.*;
 
@@ -30,13 +33,15 @@ public class MainFrame {
 	private JButton buttonAjouterContact;
 	private JButton buttonSave;
 	
+	private JList jlistContact ;
+	
 	public MainFrame() throws ClassNotFoundException, IOException {
 		
 		ArrayList<Contact> arraylistContact = new ArrayList<Contact>();
 		
 		ContactFile.DownloadDataContact("./BDDContacts",arraylistContact);
 		
-		JList jlistContact = new JList(arraylistContact.toArray());
+		jlistContact = new JList(arraylistContact.toArray());
 		Contact newContact = new Contact();
 		
 		/*Définition de la trame de fond*/
@@ -88,13 +93,15 @@ public class MainFrame {
 		frameSmartphone.getContentPane().add(fondEcran);
 		fondEcran.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/fondEcran.jpg")));
 		
-		/*-------------------------------------------------------------------------------------------------------------------*/
-		/*CREATION DE TOUT LES CHAMPS*/
-		/*-------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------*/
+/*CREATION DE TOUT LES CHAMPS*/
+/*-------------------------------------------------------------------------------------------------------------------*/
 		
-		/*Création des champs d'ajout de contact*/
+	/*Création des champs d'ajout de contact*/
+		
+		/*Prénom*/
 		firstNamef = new JTextField();
-		firstNamef.setText("Prénom ");
+		firstNamef.setText("");
 		firstNamef.setBounds(10, 10, 40, 10);
 		firstNamef.addFocusListener(new FocusAdapter() {
 		    @Override
@@ -104,8 +111,9 @@ public class MainFrame {
 		});
 		panelNewContact.add(firstNamef);
 		
+		/*Nom*/
 		lastNamef = new JTextField();
-		lastNamef.setText("Nom ");
+		lastNamef.setText("");
 		lastNamef.setBounds(10, 10, 40, 10);
 		lastNamef.addFocusListener(new FocusAdapter() {
 		    @Override
@@ -115,21 +123,44 @@ public class MainFrame {
 		});
 		panelNewContact.add(lastNamef);
 		
-		panelContact.add(jlistContact);
-		jlistContact.setBounds(20, 250, 300, 300);
+	/*Création des champs du menu contact*/
 		
-		/*-------------------------------------------------------------------------------------------------------------------*/
-		/*CREATION DE TOUT LES BOUTONS*/
-		/*-------------------------------------------------------------------------------------------------------------------*/	
+		/*Insertion de la liste des contacts*/
+		panelContact.add(jlistContact);
+		jlistContact.setBounds(0, 100, 400, 550);
+		jlistContact.setBackground(new Color(215,216,216));
+		jlistContact.setFixedCellHeight(45);
+		jlistContact.setBorder(new EmptyBorder(10, 10, 10, 10));
+		Font font = new Font("Roboto", Font.PLAIN, 15);
+		jlistContact.setFont(font);
+		
+		jlistContact.addListSelectionListener(new ListSelectionListener() {
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				// TODO Auto-generated method stub
+
+				firstNamef.setText(arraylistContact.get(e.getLastIndex()).getFirstname());
+				lastNamef.setText(arraylistContact.get(e.getLastIndex()).getLastname());
+				
+				panelNewContact.setVisible(true);
+				panelContact.setVisible(false);
+			}
+		});
+		
+/*-------------------------------------------------------------------------------------------------------------------*/
+/*CREATION DE TOUT LES BOUTONS*/
+/*-------------------------------------------------------------------------------------------------------------------*/	
 		
 		panelMenu.setLayout(null);
 		
-		/*Création du bouton "Menu"*/
+	/*Création du bouton "Menu"*/
 		buttonMenu = new JButton();
 		buttonMenu.setBounds(190, 682, 50, 50);
 		buttonMenu.setBackground(Color.black);
 		buttonMenu.setBorder(null);
 		buttonMenu.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/home.png")));
+		
+		/*Ajout du hover au survol de la souris*/
 		buttonMenu.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent e) {
 		    	buttonMenu.setBackground(Color.GRAY);
@@ -138,6 +169,8 @@ public class MainFrame {
 		    	buttonMenu.setBackground(Color.black);
 		    }
 		});
+		
+		/*Ajout de l'action du bouton*/
 		buttonMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panelMenu.setVisible(true);
@@ -148,12 +181,14 @@ public class MainFrame {
 		});
 		frameSmartphone.getContentPane().add(buttonMenu);
 		
-		/*Création du bouton "Fermer"*/
+	/*Création du bouton "Fermer"*/
 		buttonFermer = new JButton();
 		buttonFermer.setBounds(280, 682, 50, 50);
 		buttonFermer.setBackground(Color.black);
 		buttonFermer.setBorder(null);
 		buttonFermer.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/shutdown.png")));
+		
+		/*Ajout du hover au survol de la souris*/
 		buttonFermer.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent e) {
 		    	buttonFermer.setBackground(Color.GRAY);
@@ -162,6 +197,8 @@ public class MainFrame {
 		    	buttonFermer.setBackground(Color.black);
 		    }
 		});
+		
+		/*Ajout de l'action du bouton*/
 		buttonFermer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -174,12 +211,14 @@ public class MainFrame {
 		});
 		frameSmartphone.getContentPane().add(buttonFermer);
 		
-		/*Création du bouton "Verrouiller"*/
+	/*Création du bouton "Verrouiller"*/
 		buttonVerrouiller = new JButton();
 		buttonVerrouiller.setBounds(100, 682, 50, 50);
 		buttonVerrouiller.setBackground(Color.black);
 		buttonVerrouiller.setBorder(null);
 		buttonVerrouiller.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/verrouiller.png")));
+		
+		/*Ajout du hover au survol de la souris*/
 		buttonVerrouiller.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent e) {
 		    	buttonVerrouiller.setBackground(Color.GRAY);
@@ -188,6 +227,8 @@ public class MainFrame {
 		    	buttonVerrouiller.setBackground(Color.black);
 		    }
 		});
+		
+		/*Ajout de l'action du bouton*/
 		buttonVerrouiller.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panelMenu.setVisible(false);
