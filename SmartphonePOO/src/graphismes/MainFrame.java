@@ -151,7 +151,6 @@ public class MainFrame {
 		galeriePhoto.setBackground(new Color(0,0,0,150));
 		galeriePhoto.setBounds(15, 45, 400, 620);
 
-		//final JPanel galeriePhoto = new JPanel();
 		PanelGalerie galeriePhoto = new PanelGalerie();
 		frameSmartphone.getContentPane().add(galeriePhoto);
 		

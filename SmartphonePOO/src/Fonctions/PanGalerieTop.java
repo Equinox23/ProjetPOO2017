@@ -10,7 +10,7 @@ public class PanGalerieTop extends JPanel {
 	public PanGalerieTop() {
 		super();
 		this.setBackground(new Color(0,0,0,150));
-		this.setBounds(0, 0, 400, 555);		
+		this.setBounds(0, 25, 400, 530);		
 	}
 	
 }
