@@ -1,59 +1,44 @@
 package fonctionsSmartphone;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.*;
 
-/*Permet la serialization et la déserialisation de la class ListContact qui est une collections de Contact*/
-public class ContactFile {
-	private String file = "Contacts.serial";
-	
-	public void writeToFile(List<Contact> list) {
-		ObjectOutputStream outStream = null;
-		try {
-			outStream = new ObjectOutputStream(new FileOutputStream(file));
-			for (Contact co : list) {
-				if(co!=null)
-					outStream.writeObject(co);
-			}
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
-		} catch (IOException ioException) {
-			System.err.println("Error opening file.");
-		} catch (NoSuchElementException noSuchElementException) {
-			System.err.println("Invalid input.");
-		} finally {
-			try {
-				if (outStream != null)
-					outStream.close();
-			} catch (IOException ioException) {
-				System.err.println("Error closing file.");
-			}
+public class ContactFile {
+	
+	/*Permet la sérialisation des contacts*/
+	public static void UploadDataContact(ArrayList<Contact> arraylistContact) throws IOException {
+		
+		for (int i = 0; i < arraylistContact.size(); i++) {
+			 FileOutputStream out = new FileOutputStream("./BDDContacts/" + arraylistContact.get(i).getLastname()+arraylistContact.get(i).getFirstname()+".ser");
+			 ObjectOutputStream oos = new ObjectOutputStream( out );
+			 oos.writeObject(arraylistContact.get(i));
+			 oos.close(); 
 		}
 	}
 	
-	/*La métode de lecture du fichier retourne une liste de contact*/
-	public List<Contact> readFromFile() {
-		List<Contact> list = new ArrayList<>();
-		ObjectInputStream inputStream = null;
-		try {
-			inputStream = new ObjectInputStream(new FileInputStream(file));
-			while (true) {
-				Contact co = (Contact) inputStream.readObject();
-				list.add(co);
+	/*Permet la désérialisation des contacts*/
+	public static void DownloadDataContact(String path, ArrayList<Contact> arraylistContact) throws IOException, ClassNotFoundException {
+		File folder = new File(path);
+		if(folder.isDirectory()==true){
+			File[] list = folder.listFiles();
+			
+			for (int i = 0; i < list.length; i++) {
+				
+				FileInputStream in = new FileInputStream( "./BDDContacts/" + list[i].getName());
+				ObjectInputStream ois = new ObjectInputStream( in );
+				arraylistContact.add( (Contact) ois.readObject());
+				ois.close(); 	
 			}
-		} catch (EOFException eofException) {
-			return list;
-		} catch (ClassNotFoundException classNotFoundException) {
-			System.err.println("Object creation failed.");
-		} catch (IOException ioException) {
-			System.err.println("Error opening file.");
-		} finally {
-			try {
-				if (inputStream != null)
-					inputStream.close();
-			} catch (IOException ioException) {
-				System.err.println("Error closing file.");
+			
+			for (int i = 0; i < list.length; i++) {
+				
+				list[i].delete();	
 			}
-		}
-		return list;
+		}		
 	}
 }
