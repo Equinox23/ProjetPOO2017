@@ -11,11 +11,6 @@ import javax.swing.JScrollPane;
 import graphismes.MainFrame;
 
 
-
-/**
- * Panel de gestion de la liste des images: utilisé pour la gallerie 
- * et pour la sélection de l'image dans les contacts (Image)
- */
 public abstract class ImageList extends PanGalerieTop{
 	private static final long serialVersionUID = 1L;
 	public PanGalerieTop mpl = new PanGalerieTop();
@@ -27,11 +22,8 @@ public abstract class ImageList extends PanGalerieTop{
 	public static int gap = 3;
 	public static Dimension dim;
 	public static int size;
-
-	/**
-	 * Constructeur avec un tableau de bouton vide 
-	 * qui est rempli ici
-	 */
+	
+	
 	public ImageList(BoutonImg tblButtonIMG[]){
 		super();
 		this.tblButtonIMG=tblButtonIMG;
@@ -45,7 +37,7 @@ public abstract class ImageList extends PanGalerieTop{
 		sp.setBorder(BorderFactory.createEmptyBorder());
 		sp.setWheelScrollingEnabled(true);
 
-		sp.setPreferredSize(new Dimension(401,555));
+		sp.setPreferredSize(new Dimension(401,530));
 	}
 	public void setSizeGUI(){
 		mpl.removeAll();

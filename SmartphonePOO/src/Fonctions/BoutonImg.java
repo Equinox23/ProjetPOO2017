@@ -7,28 +7,17 @@ import javax.swing.*;
  * bouton pour miniatures
  */
 public class BoutonImg extends JButton {
-//
-//	private static final long serialVersionUID = 1L;
-//	private String sText = "";
-//	private ImageIcon imgProfil;
-//	public String getsText() {
-//		return sText;
-//	}
+
 //	/**
 //	 * Constructeur par défaut
 //	 */
 	public BoutonImg() {
 		super();
-//		this.setPreferredSize(new Dimension(10,100));
-////		setStyle();
 	}
 	/**
 	 * Constructeur avec une chaine pour le nom du bouton
 	 */
 	public BoutonImg(String sText) {
-//		super.setText(sText);
-//		this.setPreferredSize(new Dimension(120, 32));
-//		setStyle();
 	}
 	/**
 	 * Contructeur avec l'image et la taille du bouton
