@@ -5,10 +5,12 @@ import java.awt.event.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.*;
+
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import Fonctions.ImageGalerie;
 import fonctionsSmartphone.*;
 
 public class MainFrame {
@@ -84,9 +86,9 @@ public class MainFrame {
 		galeriePhoto = new JPanel();
 		galeriePhoto.setBackground(new Color(0,0,0,150));
 		galeriePhoto.setBounds(15, 15, 400, 650);
+		//final JPanel galeriePhoto = new JPanel();
+		PanelGalerie galeriePhoto = new PanelGalerie();
 		frameSmartphone.getContentPane().add(galeriePhoto);
-		galeriePhoto.setVisible(false);
-		panelContact.setLayout(null);
 		
 		fondEcran = new JLabel();
 		fondEcran.setBounds(15, 15, 400, 650);
@@ -316,8 +318,31 @@ public class MainFrame {
 				panelContact.setVisible(false);
 			}
 		});
-
-	/*Création du bouton "Sauvegarder"*/
+		
+		/*Création du bouton "Ajouter image"*/
+//		JButton buttonAjouterImage = new JButton();
+//		galeriePhoto.add(buttonAjouterImage);
+//		buttonAjouterImage.setBounds(163, 575, 75, 75);
+//		buttonAjouterImage.setBackground(Color.black);
+//		buttonAjouterImage.setBorder(null);
+//		buttonAjouterImage.setIcon(new ImageIcon(MainFrame.class.getResource("/icon/004-technology-2.png")));
+//		buttonAjouterImage.addMouseListener(new java.awt.event.MouseAdapter() {
+//		    public void mouseEntered(java.awt.event.MouseEvent e) {
+//		    	buttonAjouterImage.setBackground(Color.GRAY);
+//		    }
+//		    public void mouseExited(java.awt.event.MouseEvent e) {
+//		    	buttonAjouterImage.setBackground(Color.black);
+//		    }
+//		});
+//		buttonAjouterImage.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				Graphics g = galeriePhoto.getGraphics();
+//				Image image = Toolkit.getDefaultToolkit().getImage("/ImagesGalerie/img%20(1).jpg");
+//				g.drawImage(image, 0, 0, null);
+//			}
+//		});
+		
+		/*Création du bouton "Sauvegarder"*/
 		buttonSave = new JButton("Sauver");
 		panelNewContact.add(buttonSave);
 		buttonSave.setBounds(10, 100, 75, 75);
