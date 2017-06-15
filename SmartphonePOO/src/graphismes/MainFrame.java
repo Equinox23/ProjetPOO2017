@@ -819,7 +819,7 @@ public class MainFrame {
 		/*Ajout de l'action du bouton*/
 		newprofilpicture2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelNewContact.setVisible(false);
+				panelModifDeleteContact.setVisible(false);
 				galeriePhoto.setVisible(true);
 			}
 		});
