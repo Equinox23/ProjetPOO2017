@@ -787,10 +787,10 @@ public class MainFrame {
 		/*Ajout de l'action du bouton*/
 		newprofilpicture1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				PanelGalerie.buttonLieNewContact.setVisible(true);
 				panelNewContact.setVisible(false);
-				galeriePhoto.setVisible(true);
-				
-				
+				galeriePhoto.setVisible(true);	
 			}
 		});
 		
@@ -816,7 +816,7 @@ public class MainFrame {
 		newprofilpicture2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				System.out.println(contactencours);
+				PanelGalerie.buttonLieContact.setVisible(true);
 				panelModifDeleteContact.setVisible(false);
 				galeriePhoto.setVisible(true);
 			}
