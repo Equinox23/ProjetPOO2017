@@ -16,7 +16,7 @@ public abstract class ImageList extends PanGalerieTop{
 	public PanGalerieTop mpl = new PanGalerieTop();
 	public JScrollPane sp = new JScrollPane(mpl);
 	public BoutonImg[] tblButtonIMG;
-	public BoutonImg btnLBLZoom = new BoutonImg();
+	
 
 	public static int nbColonne = 5;
 	public static int gap = 3;
@@ -51,7 +51,7 @@ public abstract class ImageList extends PanGalerieTop{
 			MainFrame.galerie.setPicture(i);
 			tblButtonIMG[i] = new BoutonImg(MainFrame.galerie.picture.getImgIcon(),dim);
 		}
-		// ajout les boutons à la grille mpl
+		
 		setGUI();	
 	}
 

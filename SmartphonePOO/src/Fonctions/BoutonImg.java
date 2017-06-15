@@ -11,6 +11,8 @@ public class BoutonImg extends JButton {
 //	/**
 //	 * Constructeur par défaut
 //	 */
+	private ImageIcon imgProfil;
+	
 	public BoutonImg() {
 		super();
 	}
@@ -53,16 +55,16 @@ public class BoutonImg extends JButton {
 //	public void setInitImage(ImageIcon img) {
 //		this.setIcon(img);
 //	}
+
+	public void setImage(ImageIcon img) {
+		this.imgProfil=img;
+		this.setIcon(imgProfil);
+	}
 //
-//	public void setImage(ImageIcon img) {
-//		this.imgProfil=img;
-//		this.setIcon(imgProfil);
-//	}
-//
-//	public ImageIcon getImageIcon() {
-//		return this.imgProfil;
-//
-//	}
+	public ImageIcon getImageIcon() {
+		return this.imgProfil;
+
+	}
 //	
 //	public void setsText(String sText) {
 //		this.sText = sText;
