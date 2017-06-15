@@ -30,6 +30,8 @@ public class MainFrame {
 	private JLabel labelLastName2;
 	private JLabel labelphonenumber1;
 	private JLabel labelphonenumber2;
+	private JLabel labelemail1;
+	private JLabel labelemail2;
 	
 	private JScrollPane listScroller;
 	
@@ -39,6 +41,8 @@ public class MainFrame {
 	private JTextField lastNamef2;
 	private JTextField phonenumber1;
 	private JTextField phonenumber2;
+	private JTextField email1;
+	private JTextField email2;
 	
 	private JButton buttonMenu;
 	private JButton buttonFermer;
@@ -170,6 +174,18 @@ public class MainFrame {
 		labelphonenumber1.setBounds(10, 110, 100, 40);
 		labelphonenumber1.setForeground(Color.white);
 		
+		/*Emails*/
+		email1 = new JTextField();
+		panelNewContact.add(email1);
+		email1.setFont(font);
+		email1.setBounds(100, 160, 290, 40);
+		
+		labelemail1 = new JLabel("Email");
+		labelemail1.setFont(fontBold);
+		panelNewContact.add(labelemail1);
+		labelemail1.setBounds(10, 160, 100, 40);
+		labelemail1.setForeground(Color.white);
+		
 	/*Création des champs de modification de contact*/
 		
 		/*Prénom*/
@@ -207,6 +223,18 @@ public class MainFrame {
 		panelModifDeleteContact.add(labelphonenumber2);
 		labelphonenumber2.setBounds(10, 110, 100, 40);
 		labelphonenumber2.setForeground(Color.white);
+		
+		/*Emails*/
+		email2 = new JTextField();
+		panelModifDeleteContact.add(email2);
+		email2.setFont(font);
+		email2.setBounds(100, 160, 290, 40);
+		
+		labelemail2 = new JLabel("Email");
+		labelemail2.setFont(fontBold);
+		panelModifDeleteContact.add(labelemail2);
+		labelemail2.setBounds(10, 160, 100, 40);
+		labelemail2.setForeground(Color.white);
 		
 	/*Création des champs du menu contact*/
 		
@@ -443,6 +471,7 @@ public class MainFrame {
 				newContact.setFirstname(firstNamef1.getText());
 				newContact.setLastname(lastNamef1.getText());
 				newContact.setPhonenumber(phonenumber1.getText());
+				newContact.setEmail(email1.getText());
 				
 				arraylistContact.add(newContact);
 				
@@ -479,6 +508,7 @@ public class MainFrame {
 				firstNamef2.setText(arraylistContact.get(selectedContact.getLastIndex()).getFirstname());
 				lastNamef2.setText(arraylistContact.get(selectedContact.getLastIndex()).getLastname());
 				phonenumber2.setText(arraylistContact.get(selectedContact.getLastIndex()).getPhonenumber());
+				email2.setText(arraylistContact.get(selectedContact.getLastIndex()).getEmail());
 				
 				panelModifDeleteContact.setVisible(true);
 				panelContact.setVisible(false);
@@ -512,6 +542,7 @@ public class MainFrame {
 				newContact.setFirstname(firstNamef2.getText());
 				newContact.setLastname(lastNamef2.getText());
 				newContact.setPhonenumber(phonenumber2.getText());
+				newContact.setEmail(email2.getText());
 				
 				arraylistContact.remove(contactencours);
 				
@@ -563,6 +594,7 @@ public class MainFrame {
 				newContact.setFirstname(firstNamef2.getText());
 				newContact.setLastname(lastNamef2.getText());
 				newContact.setPhonenumber(phonenumber2.getText());
+				newContact.setEmail(email2.getText());
 				
 				arraylistContact.remove(contactencours);
 				arraylistContact.add(newContact);
@@ -640,7 +672,28 @@ public class MainFrame {
 			public void actionPerformed(ActionEvent e) {
 					
 				panelModifDeleteContact.setVisible(false);
-				panelContact.setVisible(true);		
+				panelContact.setVisible(true);	
+				
+				/*sérialisation des contacts*/
+				try {
+					ContactFile.UploadDataContact(arraylistContact);
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+
+				/*Fermeture de la fenêtre actuelle afin de rafraîchir les données de la JList*/
+				frameSmartphone.dispose();
+				
+				/*Nouvelle ouverture du programme et chargement du panelContact*/
+				MainFrame mainFrame;
+				try {
+					mainFrame = new MainFrame();
+					mainFrame.frameSmartphone.setVisible(true);
+					mainFrame.panelContact.setVisible(true);
+				} catch (ClassNotFoundException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}		
 			}
 		});
 	}

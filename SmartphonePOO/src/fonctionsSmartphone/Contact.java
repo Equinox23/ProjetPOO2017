@@ -11,6 +11,7 @@ public class Contact implements Serializable {
 	private String lastname;
 	private String firstname;
 	private String phonenumber;
+	private String email;
 	
 	public Contact(String lastname, String firstname) {
 		this.contactID = UUID.randomUUID();
@@ -44,6 +45,14 @@ public class Contact implements Serializable {
 
 	public void setPhonenumber(String phonenumber) {
 		this.phonenumber = phonenumber;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public UUID getContactID() {
