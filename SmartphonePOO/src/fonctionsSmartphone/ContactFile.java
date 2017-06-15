@@ -5,6 +5,7 @@ import java.util.*;
 
 public class ContactFile {
 	
+	/*Permet la sérialisation des contacts*/
 	public static void UploadDataContact(ArrayList<Contact> arraylistContact) throws IOException {
 		
 		for (int i = 0; i < arraylistContact.size(); i++) {
@@ -15,6 +16,7 @@ public class ContactFile {
 		}
 	}
 	
+	/*Permet la désérialisation des contacts*/
 	public static void DownloadDataContact(String path, ArrayList<Contact> arraylistContact) throws IOException, ClassNotFoundException {
 		File folder = new File(path);
 		if(folder.isDirectory()==true){
