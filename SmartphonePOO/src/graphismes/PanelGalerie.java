@@ -112,13 +112,11 @@ public class PanelGalerie extends JPanel implements ActionListener  {
 		});
 		buttonLieContact.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				MainFrame.class.panelNewContact.setVisible(true);
-//				MainFrame.galeriePhoto.setVisible(false);				
+				MainFrame.panelNewContact.setVisible(true);
+				MainFrame.galeriePhoto.setVisible(false);			
 			}
 		});
 	}
-	
-	
 	
 	public static void setImageCard(int i) {
 		cl.show(panManager, listPanel[i]);

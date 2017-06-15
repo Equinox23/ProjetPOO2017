@@ -9,7 +9,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import Fonctions.BoutonImg;
 import Fonctions.MyListGalerie;
 
 import fonctionsSmartphone.*;
@@ -28,10 +27,10 @@ public class MainFrame {
 	
 	private JPanel panelContact;
 	private JPanel panelMenu;
-	private JPanel panelNewContact;
-	private JPanel panelModifDeleteContact;
+	protected static JPanel panelNewContact;
+	protected static JPanel panelModifDeleteContact;
 	private JPanel topMenu;
-	private JPanel galeriePhoto;
+	protected static JPanel galeriePhoto;
 
 	private JLabel fondEcran;
 	private JLabel labelFirstName1;
@@ -69,10 +68,10 @@ public class MainFrame {
 	private JButton buttonModify;
 	private JButton cancelNewContact;
 	private JButton cancelModification;
-	private BoutonImg profilpicture1;
-	private BoutonImg profilpicture2;
-	private BoutonImg newprofilpicture1;
-	private BoutonImg newprofilpicture2;
+	private JButton profilpicture1;
+	private JButton profilpicture2;
+	private JButton newprofilpicture1;
+	private JButton newprofilpicture2;
 		
 	private Font font;
 	private Font fontBold;
@@ -745,7 +744,7 @@ public class MainFrame {
 		});
 		
 	/*Création du bouton "Photo" dans ajout contact*/
-		profilpicture1 = new BoutonImg();
+		profilpicture1 = new JButton();
 		panelNewContact.add(profilpicture1);
 		profilpicture1.setBounds(100, 210, 220, 220);
 		profilpicture1.setBackground(Color.white);
@@ -759,7 +758,7 @@ public class MainFrame {
 		});
 		
 	/*Création du bouton "Photo" dans modif/delete contact*/
-		profilpicture2 = new BoutonImg();
+		profilpicture2 = new JButton();
 		panelModifDeleteContact.add(profilpicture2);
 		profilpicture2.setBounds(100, 210, 220, 220);
 		profilpicture2.setBackground(Color.white);
@@ -773,11 +772,11 @@ public class MainFrame {
 		});
 		
 		/*Création du bouton "Photo" dans ajout contact*/
-		newprofilpicture1 = new BoutonImg();
+		newprofilpicture1 = new JButton();
 		panelNewContact.add(newprofilpicture1);
 		newprofilpicture1.setBounds(330, 370, 60, 60);
 		newprofilpicture1.setBackground(Color.red);
-		//newprofilpicture1.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/addPhoto.png")));
+		newprofilpicture1.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/addPhoto.png")));
 		newprofilpicture1.setBorder(null);
 		
 		/*Ajout du hover au survol de la souris*/
@@ -801,11 +800,11 @@ public class MainFrame {
 		});
 		
 		/*Création du bouton "Photo" dans modif/delete contact*/
-		newprofilpicture2 = new BoutonImg();
+		newprofilpicture2 = new JButton();
 		panelModifDeleteContact.add(newprofilpicture2);
 		newprofilpicture2.setBounds(330, 370, 60, 60);
 		newprofilpicture2.setBackground(Color.red);
-		//newprofilpicture2.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/addPhoto.png")));
+		newprofilpicture2.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/addPhoto.png")));
 		newprofilpicture2.setBorder(null);
 		
 		/*Ajout du hover au survol de la souris*/
