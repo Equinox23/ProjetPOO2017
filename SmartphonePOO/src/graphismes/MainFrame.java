@@ -5,13 +5,15 @@ import java.awt.event.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.*;
-
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import Fonctions.ImageGalerie;
 import fonctionsSmartphone.*;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class MainFrame {
 	
@@ -22,6 +24,7 @@ public class MainFrame {
 	private JPanel panelNewContact;
 	private JPanel galeriePhoto;
 	private JPanel panelModifDeleteContact;
+	private JPanel topMenu;
 	
 	private JLabel fondEcran;
 	private JLabel labelFirstName1;
@@ -32,6 +35,8 @@ public class MainFrame {
 	private JLabel labelphonenumber2;
 	private JLabel labelemail1;
 	private JLabel labelemail2;
+	private JLabel heuretelephone;
+	private JLabel heuretelephonepetit;
 	
 	private JScrollPane listScroller;
 	
@@ -58,6 +63,8 @@ public class MainFrame {
 	
 	private Font font;
 	private Font fontBold;
+	private Font fontHeure;
+	private Font fontHeurepetit;
 	
 	private JList jlistContact ;
 	int contactencours;
@@ -74,6 +81,8 @@ public class MainFrame {
 		
 		font = new Font("Roboto", Font.PLAIN, 15);
 		fontBold = new Font("Roboto", Font.BOLD, 15);
+		fontHeure = new Font("Roboto", Font.BOLD, 60);
+		fontHeurepetit = new Font("Roboto", Font.BOLD, 18);
 		
 		/*Définition de la trame de fond*/
 		frameSmartphone = new JFrame();
@@ -91,14 +100,21 @@ public class MainFrame {
 	/*Création du menu de base*/
 		panelMenu = new JPanel();
 		panelMenu.setBackground(new Color(0,0,0,150));
-		panelMenu.setBounds(15, 15, 400, 650);
+		panelMenu.setBounds(15, 45, 400, 630);
 		frameSmartphone.getContentPane().add(panelMenu);
 		panelMenu.setVisible(false);
+		
+	/*Création du top menu*/
+		topMenu = new JPanel();
+		topMenu.setBackground(Color.WHITE);
+		topMenu.setBounds(15, 15, 400, 30);
+		frameSmartphone.getContentPane().add(topMenu);
+		topMenu.setVisible(false);
 		
 	/*Création du panel contact*/
 		panelContact = new JPanel();
 		panelContact.setBackground(new Color(0,0,0,150));
-		panelContact.setBounds(15, 15, 400, 650);
+		panelContact.setBounds(15, 45, 400, 620);
 		frameSmartphone.getContentPane().add(panelContact);
 		panelContact.setVisible(false);
 		panelContact.setLayout(null);
@@ -109,20 +125,20 @@ public class MainFrame {
 		frameSmartphone.getContentPane().add(panelNewContact);
 		panelNewContact.setVisible(false);
 		panelNewContact.setLayout(null);
-		panelNewContact.setBounds(15, 15, 400, 650);
+		panelNewContact.setBounds(15, 45, 400, 620);
 		
-	/*Création du panel nouveau contact*/
+	/*Création du panel modifier un contact*/
 		panelModifDeleteContact = new JPanel();
 		panelModifDeleteContact.setBackground(new Color(0,0,0,150));
 		frameSmartphone.getContentPane().add(panelModifDeleteContact);
 		panelModifDeleteContact.setVisible(false);
 		panelModifDeleteContact.setLayout(null);
-		panelModifDeleteContact.setBounds(15, 15, 400, 650);
+		panelModifDeleteContact.setBounds(15, 45, 400, 620);
 		
 	/*Création du panel galerie photo*/
 		galeriePhoto = new JPanel();
 		galeriePhoto.setBackground(new Color(0,0,0,150));
-		galeriePhoto.setBounds(15, 15, 400, 650);
+		galeriePhoto.setBounds(15, 45, 400, 620);
 		//final JPanel galeriePhoto = new JPanel();
 		PanelGalerie galeriePhoto = new PanelGalerie();
 		frameSmartphone.getContentPane().add(galeriePhoto);
@@ -136,6 +152,23 @@ public class MainFrame {
 /*CREATION DE TOUT LES CHAMPS*/
 /*-------------------------------------------------------------------------------------------------------------------*/
 		
+	/*Création et ajout de l'heure sur le menu principal*/
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
+		LocalDateTime now = LocalDateTime.now();
+		
+		heuretelephone = new JLabel(dtf.format(now), JLabel.CENTER);
+		fondEcran.add(heuretelephone);
+		heuretelephone.setBounds(0, 150, 400, 60);
+		heuretelephone.setForeground(Color.white);
+		heuretelephone.setFont(fontHeure);
+		
+	/*Création et ajout de l'heure sur le top menu*/			
+		heuretelephonepetit = new JLabel(dtf.format(now), JLabel.CENTER);
+		topMenu.add(heuretelephonepetit);
+		heuretelephonepetit.setBounds(0, 0, 400, 30);
+		heuretelephonepetit.setForeground(Color.black);
+		heuretelephonepetit.setFont(fontHeurepetit);
+
 	/*Création des champs d'ajout de contact*/
 		
 		/*Prénom*/
@@ -283,6 +316,8 @@ public class MainFrame {
 				galeriePhoto.setVisible(false);
 				panelNewContact.setVisible(false);
 				panelModifDeleteContact.setVisible(false);
+				heuretelephone.setVisible(false);
+				topMenu.setVisible(true);
 			}
 		});
 		frameSmartphone.getContentPane().add(buttonMenu);
@@ -341,6 +376,9 @@ public class MainFrame {
 				panelContact.setVisible(false);
 				galeriePhoto.setVisible(false);
 				panelNewContact.setVisible(false);
+				heuretelephone.setVisible(true);
+				topMenu.setVisible(false);
+				panelModifDeleteContact.setVisible(false);
 			}
 		});
 		frameSmartphone.getContentPane().add(buttonVerrouiller);
@@ -450,7 +488,7 @@ public class MainFrame {
 		buttonSave = new JButton("Sauver");
 		buttonSave.setFont(fontBold);
 		panelNewContact.add(buttonSave);
-		buttonSave.setBounds(10, 590, 380, 50);
+		buttonSave.setBounds(10, 560, 380, 50);
 		buttonSave.setBackground(Color.green);
 		buttonSave.setBorder(null);
 		
@@ -491,6 +529,7 @@ public class MainFrame {
 					mainFrame = new MainFrame();
 					mainFrame.frameSmartphone.setVisible(true);
 					mainFrame.panelContact.setVisible(true);
+					mainFrame.topMenu.setVisible(true);
 				} catch (ClassNotFoundException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -521,7 +560,7 @@ public class MainFrame {
 		buttonDelete.setForeground(Color.white);
 		buttonDelete.setFont(fontBold);
 		panelModifDeleteContact.add(buttonDelete);
-		buttonDelete.setBounds(10, 590, 380, 50);
+		buttonDelete.setBounds(10, 560, 380, 50);
 		buttonDelete.setBackground(Color.red);
 		buttonDelete.setBorder(null);
 		
@@ -562,6 +601,7 @@ public class MainFrame {
 					mainFrame = new MainFrame();
 					mainFrame.frameSmartphone.setVisible(true);
 					mainFrame.panelContact.setVisible(true);
+					mainFrame.topMenu.setVisible(true);
 				} catch (ClassNotFoundException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -573,7 +613,7 @@ public class MainFrame {
 		buttonModify = new JButton("Modifier");
 		panelModifDeleteContact.add(buttonModify);
 		buttonModify.setFont(fontBold);
-		buttonModify.setBounds(10, 530, 380, 50);
+		buttonModify.setBounds(10, 500, 380, 50);
 		buttonModify.setBackground(Color.green);
 		buttonModify.setBorder(null);
 		
@@ -615,6 +655,7 @@ public class MainFrame {
 					mainFrame = new MainFrame();
 					mainFrame.frameSmartphone.setVisible(true);
 					mainFrame.panelContact.setVisible(true);
+					mainFrame.topMenu.setVisible(true);
 				} catch (ClassNotFoundException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -626,7 +667,7 @@ public class MainFrame {
 		cancelNewContact = new JButton("Annuler");
 		panelNewContact.add(cancelNewContact);
 		cancelNewContact.setFont(fontBold);
-		cancelNewContact.setBounds(10, 530, 380, 50);
+		cancelNewContact.setBounds(10, 500, 380, 50);
 		cancelNewContact.setBackground(Color.white);
 		cancelNewContact.setBorder(null);
 		
@@ -653,7 +694,7 @@ public class MainFrame {
 		cancelModification = new JButton("Annuler");
 		panelModifDeleteContact.add(cancelModification);
 		cancelModification.setFont(fontBold);
-		cancelModification.setBounds(10, 470, 380, 50);
+		cancelModification.setBounds(10, 440, 380, 50);
 		cancelModification.setBackground(Color.white);
 		cancelModification.setBorder(null);
 		
@@ -690,6 +731,7 @@ public class MainFrame {
 					mainFrame = new MainFrame();
 					mainFrame.frameSmartphone.setVisible(true);
 					mainFrame.panelContact.setVisible(true);
+					mainFrame.topMenu.setVisible(true);
 				} catch (ClassNotFoundException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
