@@ -71,6 +71,8 @@ public class MainFrame {
 	private JButton cancelModification;
 	private JButton profilpicture1;
 	private JButton profilpicture2;
+	private JButton newprofilpicture1;
+	private JButton newprofilpicture2;
 		
 	private Font font;
 	private Font fontBold;
@@ -767,6 +769,58 @@ public class MainFrame {
 		profilpicture2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 						
+			}
+		});
+		
+		/*Création du bouton "Photo" dans ajout contact*/
+		newprofilpicture1 = new JButton();
+		panelNewContact.add(newprofilpicture1);
+		newprofilpicture1.setBounds(330, 370, 60, 60);
+		newprofilpicture1.setBackground(Color.red);
+		newprofilpicture1.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/addPhoto.png")));
+		newprofilpicture1.setBorder(null);
+		
+		/*Ajout du hover au survol de la souris*/
+		newprofilpicture1.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent e) {
+		    	newprofilpicture1.setBackground(Color.GRAY);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent e) {
+		    	newprofilpicture1.setBackground(Color.red);
+		    }
+		});
+		
+		/*Ajout de l'action du bouton*/
+		newprofilpicture1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panelNewContact.setVisible(false);
+				galeriePhoto.setVisible(true);
+			}
+		});
+		
+		/*Création du bouton "Photo" dans modif/delete contact*/
+		newprofilpicture2 = new JButton();
+		panelModifDeleteContact.add(newprofilpicture2);
+		newprofilpicture2.setBounds(330, 370, 60, 60);
+		newprofilpicture2.setBackground(Color.red);
+		newprofilpicture2.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/addPhoto.png")));
+		newprofilpicture2.setBorder(null);
+		
+		/*Ajout du hover au survol de la souris*/
+		newprofilpicture2.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent e) {
+		    	newprofilpicture2.setBackground(Color.GRAY);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent e) {
+		    	newprofilpicture2.setBackground(Color.red);
+		    }
+		});
+		
+		/*Ajout de l'action du bouton*/
+		newprofilpicture2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panelNewContact.setVisible(false);
+				galeriePhoto.setVisible(true);
 			}
 		});
 	}

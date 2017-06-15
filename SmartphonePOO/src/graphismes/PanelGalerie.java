@@ -30,6 +30,7 @@ public class PanelGalerie extends JPanel implements ActionListener  {
 	static BufferedImage image;
 	Icon redim;
 	JButton buttonAjouterImage;	
+	JButton buttonLieContact;	
 	String path;
 	JLabel photos;
 	
@@ -70,13 +71,6 @@ public class PanelGalerie extends JPanel implements ActionListener  {
 		setImageCard(0);
 		btnLBLZoom.addActionListener(new clic_btnLBLZoom());
 		
-	//panel de miniature
-//		miniature = new PanGalerieTop();
-//		miniature.setVisible(true);
-//		miniature.setLayout(new FlowLayout(FlowLayout.CENTER));
-//		miniature.add(btnLBLZoom);
-//		this.add(miniature);
-		
 	// panel avec boutons
 		boutons = new JPanel();
 		boutons.setBackground(new Color(0,0,0,150));
@@ -84,8 +78,6 @@ public class PanelGalerie extends JPanel implements ActionListener  {
 		boutons.setVisible(true);
 		boutons.setLayout(null);
 		this.add(boutons);
-		
-		
 		
 		/*Création du bouton "Ajouter image"*/
 		buttonAjouterImage = new JButton();
@@ -103,7 +95,30 @@ public class PanelGalerie extends JPanel implements ActionListener  {
 		    }
 		});
 		buttonAjouterImage.addActionListener(this);
+		
+		/*Création du bouton "Ajouter à un contact"*/
+		buttonLieContact = new JButton("Ajout");
+		boutons.add(buttonLieContact);
+		buttonLieContact.setBounds(260, 5, 75, 75);
+		buttonLieContact.setBackground(Color.red);
+		buttonLieContact.setBorder(null);
+		buttonLieContact.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent e) {
+		    	buttonLieContact.setBackground(Color.GRAY);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent e) {
+		    	buttonLieContact.setBackground(Color.red);
+		    }
+		});
+		buttonLieContact.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+//				MainFrame.class.panelNewContact.setVisible(true);
+//				MainFrame.galeriePhoto.setVisible(false);				
+			}
+		});
 	}
+	
+	
 	
 	public static void setImageCard(int i) {
 		cl.show(panManager, listPanel[i]);
@@ -177,7 +192,7 @@ public class PanelGalerie extends JPanel implements ActionListener  {
 			return image;
 		}
 		
-		 public static BufferedImage scale(BufferedImage img, double scaleValue) {
+		public static BufferedImage scale(BufferedImage img, double scaleValue) {
 		        AffineTransform tx = new AffineTransform();
 		        tx.scale(scaleValue, scaleValue);
 		        AffineTransformOp op = new AffineTransformOp(tx,AffineTransformOp.TYPE_BILINEAR);
