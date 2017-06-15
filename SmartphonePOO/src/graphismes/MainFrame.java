@@ -77,10 +77,10 @@ public class MainFrame {
 	/*Création du panel nouveau contact*/
 		panelNewContact = new JPanel();
 		panelNewContact.setBackground(new Color(0,0,0,150));
-		panelNewContact.setBounds(15, 15, 400, 650);
 		frameSmartphone.getContentPane().add(panelNewContact);
 		panelNewContact.setVisible(false);
-		panelContact.setLayout(null);
+		panelNewContact.setLayout(null);
+		panelNewContact.setBounds(15, 15, 400, 650);
 		
 	/*Création du panel galerie photo*/
 		galeriePhoto = new JPanel();
@@ -103,27 +103,13 @@ public class MainFrame {
 		
 		/*Prénom*/
 		firstNamef = new JTextField();
-		firstNamef.setText("");
-		firstNamef.setBounds(10, 10, 40, 10);
-		firstNamef.addFocusListener(new FocusAdapter() {
-		    @Override
-		    public void focusGained(FocusEvent e) {
-		    	firstNamef.setText("");
-		    }
-		});
 		panelNewContact.add(firstNamef);
-		
+		firstNamef.setBounds(20, 200, 100, 30);
+
 		/*Nom*/
 		lastNamef = new JTextField();
-		lastNamef.setText("");
-		lastNamef.setBounds(10, 10, 40, 10);
-		lastNamef.addFocusListener(new FocusAdapter() {
-		    @Override
-		    public void focusGained(FocusEvent e) {
-		    	lastNamef.setText("");
-		    }
-		});
 		panelNewContact.add(lastNamef);
+		lastNamef.setBounds(20, 250, 100, 30);
 		
 	/*Création des champs du menu contact*/
 		
@@ -132,7 +118,7 @@ public class MainFrame {
 		jlistContact.setBounds(0, 100, 400, 550);
 		jlistContact.setBackground(new Color(215,216,216));
 		jlistContact.setFixedCellHeight(45);
-		jlistContact.setBorder(new EmptyBorder(10, 10, 10, 10));
+		jlistContact.setBorder(new EmptyBorder(60, 40, 10, 10));
 		Font font = new Font("Roboto", Font.PLAIN, 15);
 		jlistContact.setFont(font);
 		
@@ -345,8 +331,8 @@ public class MainFrame {
 		/*Création du bouton "Sauvegarder"*/
 		buttonSave = new JButton("Sauver");
 		panelNewContact.add(buttonSave);
-		buttonSave.setBounds(10, 100, 75, 75);
-		buttonSave.setBackground(Color.black);
+		buttonSave.setBounds(10, 500, 100, 100);
+		buttonSave.setBackground(Color.white);
 		buttonSave.setBorder(null);
 		
 		/*Ajout du hover au survol de la souris*/
@@ -355,7 +341,7 @@ public class MainFrame {
 		    	buttonSave.setBackground(Color.GRAY);
 		    }
 		    public void mouseExited(java.awt.event.MouseEvent e) {
-		    	buttonSave.setBackground(Color.black);
+		    	buttonSave.setBackground(Color.white);
 		    }
 		});
 		
