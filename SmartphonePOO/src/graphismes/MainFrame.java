@@ -273,14 +273,14 @@ public class MainFrame {
 		
 		/*Insertion de la liste des contacts*/
 		panelContact.add(jlistContact);
-		jlistContact.setBounds(0, 100, 400, 550);
+		jlistContact.setBounds(0, 100, 400, 520);
 		jlistContact.setBackground(new Color(215,216,216));
 		jlistContact.setFixedCellHeight(45);
 		jlistContact.setBorder(new EmptyBorder(0, 10, 0, 10));
 		jlistContact.setFont(font);
 		
 		listScroller = new JScrollPane(jlistContact);
-		listScroller.setBounds(0, 100, 400, 550);
+		listScroller.setBounds(0, 100, 400, 520);
 		listScroller.getVerticalScrollBar();
 		jlistContact.setLayoutOrientation(JList.VERTICAL);
 		panelContact.add(listScroller);
