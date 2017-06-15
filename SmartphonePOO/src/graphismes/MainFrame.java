@@ -69,8 +69,9 @@ public class MainFrame {
 	private JButton buttonModify;
 	private JButton cancelNewContact;
 	private JButton cancelModification;
-	
-	
+	private JButton profilpicture1;
+	private JButton profilpicture2;
+		
 	private Font font;
 	private Font fontBold;
 	private Font fontHeure;
@@ -764,6 +765,34 @@ public class MainFrame {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}		
+			}
+		});
+		
+		/*Création du bouton "Photo" dans ajout contact*/
+		profilpicture1 = new JButton();
+		panelNewContact.add(profilpicture1);
+		profilpicture1.setBounds(100, 210, 220, 220);
+		profilpicture1.setBackground(Color.white);
+		profilpicture1.setBorder(null);
+		
+		/*Ajout de l'action du bouton*/
+		profilpicture1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+						
+			}
+		});
+		
+		/*Création du bouton "Photo" dans modif/delete contact*/
+		profilpicture2 = new JButton();
+		panelModifDeleteContact.add(profilpicture2);
+		profilpicture2.setBounds(100, 210, 220, 220);
+		profilpicture2.setBackground(Color.white);
+		profilpicture2.setBorder(null);
+		
+		/*Ajout de l'action du bouton*/
+		profilpicture2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+						
 			}
 		});
 	}
