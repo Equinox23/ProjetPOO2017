@@ -6,7 +6,7 @@ import java.util.Vector;
 
 import javax.swing.*;
 
-import Fonctions.ImageGalerie;
+import Fonctions.MyListGalerie;
 import fonctionsSmartphone.*;
 
 public class MainFrame {
@@ -14,6 +14,7 @@ public class MainFrame {
 	protected JFrame frameSmartphone;
 	public static JScrollPane scrollPane;
 	public static MyList<Contact> listContact;
+	public static MyListGalerie galerie = new MyListGalerie("./ImagesGalerie");
 	
 	public MainFrame() {
 		
