@@ -72,6 +72,7 @@ public class MainFrame {
 	protected static JButton profilpicture2;
 	private JButton newprofilpicture1;
 	private JButton newprofilpicture2;
+
 		
 	private Font font;
 	private Font fontBold;
@@ -154,8 +155,7 @@ public class MainFrame {
 		galeriePhoto.setBackground(new Color(0,0,0,150));
 		galeriePhoto.setBounds(15, 45, 400, 620);
 
-		//final JPanel galeriePhoto = new JPanel();
-		galeriePhoto = new PanelGalerie();
+		PanelGalerie galeriePhoto = new PanelGalerie();
 		frameSmartphone.getContentPane().add(galeriePhoto);
 		
 		fondEcran = new JLabel();
@@ -235,6 +235,8 @@ public class MainFrame {
 		labelemail1.setForeground(Color.white);
 		
 		/*Photo*/
+
+		
 		photo1 = new JLabel("Photo");
 		photo1.setFont(fontBold);
 		panelNewContact.add(photo1);
@@ -292,6 +294,7 @@ public class MainFrame {
 		labelemail2.setForeground(Color.white);
 		
 		/*Photo*/
+		
 		photo2 = new JLabel("Photo");
 		photo2.setFont(fontBold);
 		panelModifDeleteContact.add(photo2);
@@ -492,6 +495,29 @@ public class MainFrame {
 			}
 		});
 		
+		/*Création du bouton "Ajouter image"*/
+//		JButton buttonAjouterImage = new JButton();
+//		galeriePhoto.add(buttonAjouterImage);
+//		buttonAjouterImage.setBounds(163, 575, 75, 75);
+//		buttonAjouterImage.setBackground(Color.black);
+//		buttonAjouterImage.setBorder(null);
+//		buttonAjouterImage.setIcon(new ImageIcon(MainFrame.class.getResource("/icon/004-technology-2.png")));
+//		buttonAjouterImage.addMouseListener(new java.awt.event.MouseAdapter() {
+//		    public void mouseEntered(java.awt.event.MouseEvent e) {
+//		    	buttonAjouterImage.setBackground(Color.GRAY);
+//		    }
+//		    public void mouseExited(java.awt.event.MouseEvent e) {
+//		    	buttonAjouterImage.setBackground(Color.black);
+//		    }
+//		});
+//		buttonAjouterImage.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				Graphics g = galeriePhoto.getGraphics();
+//				Image image = Toolkit.getDefaultToolkit().getImage("/ImagesGalerie/img%20(1).jpg");
+//				g.drawImage(image, 0, 0, null);
+//			}
+//		});
+		
 	/*Création du bouton "Sauvegarder"*/
 		buttonSave = new JButton("Sauver");
 		buttonSave.setFont(fontBold);
@@ -613,7 +639,7 @@ public class MainFrame {
 			}
 		});
 		
-	/*Création du bouton "Modifier"*/
+		/*Création du bouton "Modifier"*/
 		buttonModify = new JButton("Modifier");
 		panelModifDeleteContact.add(buttonModify);
 		buttonModify.setFont(fontBold);
@@ -667,34 +693,7 @@ public class MainFrame {
 			}
 		});
 		
-	/*Création du bouton "Annuler" un nouveau contact*/
-		cancelNewContact = new JButton("Annuler");
-		panelNewContact.add(cancelNewContact);
-		cancelNewContact.setFont(fontBold);
-		cancelNewContact.setBounds(10, 500, 380, 50);
-		cancelNewContact.setBackground(Color.white);
-		cancelNewContact.setBorder(null);
-		
-		/*Ajout du hover au survol de la souris*/
-		cancelNewContact.addMouseListener(new java.awt.event.MouseAdapter() {
-		    public void mouseEntered(java.awt.event.MouseEvent e) {
-		    	cancelNewContact.setBackground(Color.GRAY);
-		    }
-		    public void mouseExited(java.awt.event.MouseEvent e) {
-		    	cancelNewContact.setBackground(Color.white);
-		    }
-		});
-		
-		/*Ajout de l'action du bouton*/
-		cancelNewContact.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			
-			panelNewContact.setVisible(false);
-			panelContact.setVisible(true);
-			}
-		});
-		
-	/*Création du bouton "Annuler" une modification/suppression*/
+		/*Création du bouton "Annuler" une modification/suppression*/
 		cancelModification = new JButton("Annuler");
 		panelModifDeleteContact.add(cancelModification);
 		cancelModification.setFont(fontBold);
@@ -829,4 +828,6 @@ public class MainFrame {
 	}
 }
 	
+
+
 
