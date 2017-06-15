@@ -30,7 +30,8 @@ public class PanelGalerie extends JPanel implements ActionListener  {
 	static BufferedImage image;
 	Icon redim;
 	JButton buttonAjouterImage;	
-	JButton buttonLieContact;	
+	static JButton buttonLieContact;	
+	static JButton buttonLieNewContact;
 	String path;
 	JLabel photos;
 	
@@ -48,9 +49,8 @@ public class PanelGalerie extends JPanel implements ActionListener  {
 
 	public static boolean played= false;
 	//public static Thread t = new Thread(new PlayDiaporama());
-	
 
-	public PanelGalerie(){
+	public PanelGalerie() {
 		super();
 		this.setBackground(new Color(0,0,0,150));
 		this.setBounds(15, 15, 400, 650);		
@@ -97,7 +97,8 @@ public class PanelGalerie extends JPanel implements ActionListener  {
 		buttonAjouterImage.addActionListener(this);
 		
 		/*Création du bouton "Ajouter à un contact"*/
-		buttonLieContact = new JButton("Ajout");
+		buttonLieContact = new JButton("Exist");
+		buttonLieContact.setVisible(false);
 		boutons.add(buttonLieContact);
 		buttonLieContact.setBounds(260, 5, 75, 75);
 		buttonLieContact.setBackground(Color.red);
@@ -112,13 +113,33 @@ public class PanelGalerie extends JPanel implements ActionListener  {
 		});
 		buttonLieContact.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				MainFrame.class.panelNewContact.setVisible(true);
-//				MainFrame.galeriePhoto.setVisible(false);				
+				MainFrame.panelModifDeleteContact.setVisible(true);
+				MainFrame.galeriePhoto.setVisible(false);
+			}
+		});
+		
+		/*Création du bouton "Ajouter à un contact"*/
+		buttonLieNewContact = new JButton("Nouv");
+		buttonLieNewContact.setVisible(false);
+		boutons.add(buttonLieNewContact);
+		buttonLieNewContact.setBounds(260, 5, 75, 75);
+		buttonLieNewContact.setBackground(Color.red);
+		buttonLieNewContact.setBorder(null);
+		buttonLieNewContact.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent e) {
+		    	buttonLieNewContact.setBackground(Color.GRAY);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent e) {
+		    	buttonLieNewContact.setBackground(Color.red);
+		    }
+		});
+		buttonLieNewContact.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MainFrame.panelNewContact.setVisible(true);
+				MainFrame.galeriePhoto.setVisible(false);
 			}
 		});
 	}
-	
-	
 	
 	public static void setImageCard(int i) {
 		cl.show(panManager, listPanel[i]);

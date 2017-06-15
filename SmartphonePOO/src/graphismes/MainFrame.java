@@ -9,7 +9,10 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/Equinox23/ProjetPOO2017.git
 import Fonctions.MyListGalerie;
 
 import fonctionsSmartphone.*;
@@ -28,10 +31,10 @@ public class MainFrame {
 	
 	private JPanel panelContact;
 	private JPanel panelMenu;
-	private JPanel panelNewContact;
-	private JPanel panelModifDeleteContact;
+	protected static JPanel panelNewContact;
+	protected static JPanel panelModifDeleteContact;
 	private JPanel topMenu;
-	private JPanel galeriePhoto;
+	protected static JPanel galeriePhoto;
 
 	private JLabel fondEcran;
 	private JLabel labelFirstName1;
@@ -71,6 +74,11 @@ public class MainFrame {
 	private JButton cancelModification;
 	private JButton profilpicture1;
 	private JButton profilpicture2;
+<<<<<<< HEAD
+=======
+	private JButton newprofilpicture1;
+	private JButton newprofilpicture2;
+>>>>>>> branch 'master' of https://github.com/Equinox23/ProjetPOO2017.git
 		
 	private Font font;
 	private Font fontBold;
@@ -78,7 +86,7 @@ public class MainFrame {
 	private Font fontHeurepetit;
 	
 	private JList jlistContact ;
-	int contactencours;
+	protected static int contactencours;
 	
 	public MainFrame() throws ClassNotFoundException, IOException {
 		
@@ -605,11 +613,6 @@ public class MainFrame {
 		/*Ajout de l'action du bouton*/
 		buttonDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
-				newContact.setFirstname(firstNamef2.getText());
-				newContact.setLastname(lastNamef2.getText());
-				newContact.setPhonenumber(phonenumber2.getText());
-				newContact.setEmail(email2.getText());
 				
 				arraylistContact.remove(contactencours);
 				
@@ -767,7 +770,11 @@ public class MainFrame {
 			}
 		});
 		
+<<<<<<< HEAD
 		/*Création du bouton "Photo" dans ajout contact*/
+=======
+	/*Création du bouton "Photo" dans ajout contact*/
+>>>>>>> branch 'master' of https://github.com/Equinox23/ProjetPOO2017.git
 		profilpicture1 = new JButton();
 		panelNewContact.add(profilpicture1);
 		profilpicture1.setBounds(100, 210, 220, 220);
@@ -781,7 +788,11 @@ public class MainFrame {
 			}
 		});
 		
+<<<<<<< HEAD
 		/*Création du bouton "Photo" dans modif/delete contact*/
+=======
+	/*Création du bouton "Photo" dans modif/delete contact*/
+>>>>>>> branch 'master' of https://github.com/Equinox23/ProjetPOO2017.git
 		profilpicture2 = new JButton();
 		panelModifDeleteContact.add(profilpicture2);
 		profilpicture2.setBounds(100, 210, 220, 220);
@@ -792,6 +803,65 @@ public class MainFrame {
 		profilpicture2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 						
+<<<<<<< HEAD
+=======
+			}
+		});
+		
+		/*Création du bouton "Photo" dans ajout contact*/
+		newprofilpicture1 = new JButton();
+		panelNewContact.add(newprofilpicture1);
+		newprofilpicture1.setBounds(330, 370, 60, 60);
+		newprofilpicture1.setBackground(Color.red);
+		newprofilpicture1.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/addPhoto.png")));
+		newprofilpicture1.setBorder(null);
+		
+		/*Ajout du hover au survol de la souris*/
+		newprofilpicture1.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent e) {
+		    	newprofilpicture1.setBackground(Color.GRAY);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent e) {
+		    	newprofilpicture1.setBackground(Color.red);
+		    }
+		});
+		
+		/*Ajout de l'action du bouton*/
+		newprofilpicture1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				PanelGalerie.buttonLieNewContact.setVisible(true);
+				panelNewContact.setVisible(false);
+				galeriePhoto.setVisible(true);	
+			}
+		});
+		
+		/*Création du bouton "Photo" dans modif/delete contact*/
+		newprofilpicture2 = new JButton();
+		panelModifDeleteContact.add(newprofilpicture2);
+		newprofilpicture2.setBounds(330, 370, 60, 60);
+		newprofilpicture2.setBackground(Color.red);
+		newprofilpicture2.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/addPhoto.png")));
+		newprofilpicture2.setBorder(null);
+		
+		/*Ajout du hover au survol de la souris*/
+		newprofilpicture2.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent e) {
+		    	newprofilpicture2.setBackground(Color.GRAY);
+		    }
+		    public void mouseExited(java.awt.event.MouseEvent e) {
+		    	newprofilpicture2.setBackground(Color.red);
+		    }
+		});
+		
+		/*Ajout de l'action du bouton*/
+		newprofilpicture2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				PanelGalerie.buttonLieContact.setVisible(true);
+				panelModifDeleteContact.setVisible(false);
+				galeriePhoto.setVisible(true);
+>>>>>>> branch 'master' of https://github.com/Equinox23/ProjetPOO2017.git
 			}
 		});
 	}
