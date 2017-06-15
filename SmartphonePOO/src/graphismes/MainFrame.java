@@ -71,8 +71,6 @@ public class MainFrame {
 	private JButton cancelModification;
 	private JButton profilpicture1;
 	private JButton profilpicture2;
-	private JButton newprofilpicture1;
-	private JButton newprofilpicture2;
 		
 	private Font font;
 	private Font fontBold;
@@ -153,8 +151,7 @@ public class MainFrame {
 		galeriePhoto.setBackground(new Color(0,0,0,150));
 		galeriePhoto.setBounds(15, 45, 400, 620);
 
-		//final JPanel galeriePhoto = new JPanel();
-		galeriePhoto = new PanelGalerie();
+		PanelGalerie galeriePhoto = new PanelGalerie();
 		frameSmartphone.getContentPane().add(galeriePhoto);
 		
 		fondEcran = new JLabel();
@@ -234,6 +231,8 @@ public class MainFrame {
 		labelemail1.setForeground(Color.white);
 		
 		/*Photo*/
+
+		
 		photo1 = new JLabel("Photo");
 		photo1.setFont(fontBold);
 		panelNewContact.add(photo1);
@@ -291,6 +290,7 @@ public class MainFrame {
 		labelemail2.setForeground(Color.white);
 		
 		/*Photo*/
+		
 		photo2 = new JLabel("Photo");
 		photo2.setFont(fontBold);
 		panelModifDeleteContact.add(photo2);
@@ -489,6 +489,29 @@ public class MainFrame {
 			}
 		});
 		
+		/*Création du bouton "Ajouter image"*/
+//		JButton buttonAjouterImage = new JButton();
+//		galeriePhoto.add(buttonAjouterImage);
+//		buttonAjouterImage.setBounds(163, 575, 75, 75);
+//		buttonAjouterImage.setBackground(Color.black);
+//		buttonAjouterImage.setBorder(null);
+//		buttonAjouterImage.setIcon(new ImageIcon(MainFrame.class.getResource("/icon/004-technology-2.png")));
+//		buttonAjouterImage.addMouseListener(new java.awt.event.MouseAdapter() {
+//		    public void mouseEntered(java.awt.event.MouseEvent e) {
+//		    	buttonAjouterImage.setBackground(Color.GRAY);
+//		    }
+//		    public void mouseExited(java.awt.event.MouseEvent e) {
+//		    	buttonAjouterImage.setBackground(Color.black);
+//		    }
+//		});
+//		buttonAjouterImage.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				Graphics g = galeriePhoto.getGraphics();
+//				Image image = Toolkit.getDefaultToolkit().getImage("/ImagesGalerie/img%20(1).jpg");
+//				g.drawImage(image, 0, 0, null);
+//			}
+//		});
+		
 	/*Création du bouton "Sauvegarder"*/
 		buttonSave = new JButton("Sauver");
 		buttonSave.setFont(fontBold);
@@ -614,7 +637,7 @@ public class MainFrame {
 			}
 		});
 		
-	/*Création du bouton "Modifier"*/
+		/*Création du bouton "Modifier"*/
 		buttonModify = new JButton("Modifier");
 		panelModifDeleteContact.add(buttonModify);
 		buttonModify.setFont(fontBold);
@@ -668,7 +691,7 @@ public class MainFrame {
 			}
 		});
 		
-	/*Création du bouton "Annuler" un nouveau contact*/
+		/*Création du bouton "Annuler" un nouveau contact*/
 		cancelNewContact = new JButton("Annuler");
 		panelNewContact.add(cancelNewContact);
 		cancelNewContact.setFont(fontBold);
@@ -695,7 +718,7 @@ public class MainFrame {
 			}
 		});
 		
-	/*Création du bouton "Annuler" une modification/suppression*/
+		/*Création du bouton "Annuler" une modification/suppression*/
 		cancelModification = new JButton("Annuler");
 		panelModifDeleteContact.add(cancelModification);
 		cancelModification.setFont(fontBold);
@@ -744,7 +767,7 @@ public class MainFrame {
 			}
 		});
 		
-	/*Création du bouton "Photo" dans ajout contact*/
+		/*Création du bouton "Photo" dans ajout contact*/
 		profilpicture1 = new JButton();
 		panelNewContact.add(profilpicture1);
 		profilpicture1.setBounds(100, 210, 220, 220);
@@ -758,7 +781,7 @@ public class MainFrame {
 			}
 		});
 		
-	/*Création du bouton "Photo" dans modif/delete contact*/
+		/*Création du bouton "Photo" dans modif/delete contact*/
 		profilpicture2 = new JButton();
 		panelModifDeleteContact.add(profilpicture2);
 		profilpicture2.setBounds(100, 210, 220, 220);
@@ -769,58 +792,6 @@ public class MainFrame {
 		profilpicture2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 						
-			}
-		});
-		
-		/*Création du bouton "Photo" dans ajout contact*/
-		newprofilpicture1 = new JButton();
-		panelNewContact.add(newprofilpicture1);
-		newprofilpicture1.setBounds(330, 370, 60, 60);
-		newprofilpicture1.setBackground(Color.red);
-		newprofilpicture1.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/addPhoto.png")));
-		newprofilpicture1.setBorder(null);
-		
-		/*Ajout du hover au survol de la souris*/
-		newprofilpicture1.addMouseListener(new java.awt.event.MouseAdapter() {
-		    public void mouseEntered(java.awt.event.MouseEvent e) {
-		    	newprofilpicture1.setBackground(Color.GRAY);
-		    }
-		    public void mouseExited(java.awt.event.MouseEvent e) {
-		    	newprofilpicture1.setBackground(Color.red);
-		    }
-		});
-		
-		/*Ajout de l'action du bouton*/
-		newprofilpicture1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panelNewContact.setVisible(false);
-				galeriePhoto.setVisible(true);
-			}
-		});
-		
-		/*Création du bouton "Photo" dans modif/delete contact*/
-		newprofilpicture2 = new JButton();
-		panelModifDeleteContact.add(newprofilpicture2);
-		newprofilpicture2.setBounds(330, 370, 60, 60);
-		newprofilpicture2.setBackground(Color.red);
-		newprofilpicture2.setIcon(new ImageIcon(MainFrame.class.getResource("/imagesSmartphone/addPhoto.png")));
-		newprofilpicture2.setBorder(null);
-		
-		/*Ajout du hover au survol de la souris*/
-		newprofilpicture2.addMouseListener(new java.awt.event.MouseAdapter() {
-		    public void mouseEntered(java.awt.event.MouseEvent e) {
-		    	newprofilpicture2.setBackground(Color.GRAY);
-		    }
-		    public void mouseExited(java.awt.event.MouseEvent e) {
-		    	newprofilpicture2.setBackground(Color.red);
-		    }
-		});
-		
-		/*Ajout de l'action du bouton*/
-		newprofilpicture2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				panelNewContact.setVisible(false);
-				galeriePhoto.setVisible(true);
 			}
 		});
 	}

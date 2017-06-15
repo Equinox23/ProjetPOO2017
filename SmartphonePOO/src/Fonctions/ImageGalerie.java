@@ -3,18 +3,7 @@ package Fonctions;
 import java.awt.Dimension;
 import java.awt.Image;
 import javax.swing.ImageIcon;
-/**
- * Gestion des Images de la gallerie
- * <li>nomIcon : nom de l'image</li>
- * <li>dimIcon : dimension de l'image</li>
- * <li>imgIcon : ImageIcon de l'image</li>
- * <li>hintsIcon : paramétrage pour setImgIconResized</li>
- * <li>stretch : paramétrage pour setImgIconResized</li>
- * <li>zoom : paramétrage pour setImgIconResized</li>
- * <li>zoomAuto : paramétrage pour setImgIconResized</li>
- * </ul>
- * </p>
- */
+
 public class ImageGalerie {
 	private String nomIcon = new String("");
 	private Dimension dimIcon = new Dimension(100, 100);
@@ -23,26 +12,13 @@ public class ImageGalerie {
 	private boolean stretch = true;
 	private double zoom=1;
 	private boolean zoomAuto=true;
-	/**
-	 * Constructeur de Pictures:
-	 * 
-	*/
+
 	public ImageGalerie(){};
-	/**
-	 * Constructeur de Pictures:
-	 * @param nomIcon : la nom de l'image à redimensionner.
-	 * @param dimIcon : la nouvelle Dimension de l'image à redimensionner.
-	 * 
-	*/
+	
 //	public ImageGalerie(String nomIcon, Dimension dimIcon){
 //		this.setNomIcon(nomIcon, dimIcon);
 //	}
-	/**
-	 * Constructeur de Pictures:
-	 * @param imgIcon : l'ImageIcon à redimensionner.
-	 * @param dimIcon : la nouvelle Dimension de l'ImageIcon à redimensionner.
-	 * 
-	*/
+	
 //	public ImageGalerie(ImageIcon imgIcon, Dimension dimIcon){
 //		this.setImgIconResized(imgIcon, dimIcon);
 //	}
@@ -53,23 +29,7 @@ public class ImageGalerie {
 		this.setImgIconResized(tmpImageIcon,dimIcon);
 	}
 
-	/**
-	 * <b>Crée une version redimensionnée de l'image.</b> 
-	 *  <p>
-	 * Un nouvel objet Image est retourné qui rendra l'image
-	 * <ul>
-	 * <li>Si le strecth est demandée: à la largeur et la hauteur spécifiées.</li>
-	 * <li>Si le zoomAuto est demandée: l'image est retournée, en proportion, mais avec un zoom pour simuler un effect rognement</li>
-	 * <li>Sinon l'image est retournée, en proportion, pour occuper le maximum de place (simuler un effet plein ecran)</li>
-	 * </ul>
-	 * Si la largeur ou la hauteur est un nombre négatif, alors une valeur est substitué à maintenir le ratio d'aspect des dimensions de l'image originale.
-	 * Si la largeur et la hauteur sont négatifs, les dimensions de l'image d'origine sont utilisées.
-	 * par defaut hintsIcon = Image.SCALE_DEFAULT (flags to indicate the type of algorithm to use for image resampling)
-	 *  </p>
-	 * @param tmpImageIcon : la ImageIcon à redimensionner
-	 * @param dimIcon : la nouvelle Dimension de l'ImageIcon à redimensionner
-	 * @return tmpResized : la nouvelle ImageIcon redimensionnée
-	 */
+
 	public ImageIcon setImgIconResized(ImageIcon tmpImageIcon, Dimension dimIcon) {
 		this.setDimIcon(dimIcon) ;
 		Image tmpImage = tmpImageIcon.getImage();
