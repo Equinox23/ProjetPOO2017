@@ -15,6 +15,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+
+import Fonctions.ImageGalerie;
 import Fonctions.PanGalerieTop;
 import Fonctions.PanImageList;
 
@@ -96,7 +98,7 @@ public class PanelGalerie extends JPanel implements ActionListener  {
 		});
 		buttonAjouterImage.addActionListener(this);
 		
-		/*Création du bouton "Ajouter à un contact"*/
+		/*Création du bouton "Ajouter à un contact existant"*/
 		buttonLieContact = new JButton("Exist");
 		buttonLieContact.setVisible(false);
 		boutons.add(buttonLieContact);
@@ -115,10 +117,12 @@ public class PanelGalerie extends JPanel implements ActionListener  {
 			public void actionPerformed(ActionEvent e) {
 				MainFrame.panelModifDeleteContact.setVisible(true);
 				MainFrame.galeriePhoto.setVisible(false);
+				System.out.println(ImageGalerie.getImgIcon());
+				MainFrame.newContact.setProfilpicture("test");
 			}
 		});
 		
-		/*Création du bouton "Ajouter à un contact"*/
+		/*Création du bouton "Ajouter à un nouveau contact"*/
 		buttonLieNewContact = new JButton("Nouv");
 		buttonLieNewContact.setVisible(false);
 		boutons.add(buttonLieNewContact);

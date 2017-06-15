@@ -30,6 +30,8 @@ public class PanImageList extends ImageList {
 		public void actionPerformed(ActionEvent e) {
 			PanelGalerie.repaintPanImageView(index);
 			PanelGalerie.setImageCard(1);
+			System.out.println(ImageGalerie.getImgIcon());
+			
 		}
 	}
 	

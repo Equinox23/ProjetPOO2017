@@ -79,6 +79,8 @@ public class MainFrame {
 	private Font fontHeurepetit;
 	
 	private JList jlistContact ;
+	protected static Contact newContact;
+	
 	protected static int contactencours;
 	
 	public MainFrame() throws ClassNotFoundException, IOException {
@@ -89,7 +91,7 @@ public class MainFrame {
 		
 		jlistContact = new JList(arraylistContact.toArray());
 		
-		Contact newContact = new Contact();
+		newContact = new Contact();
 		
 		font = new Font("Roboto", Font.PLAIN, 15);
 		fontBold = new Font("Roboto", Font.BOLD, 15);
@@ -345,6 +347,8 @@ public class MainFrame {
 				panelModifDeleteContact.setVisible(false);
 				heuretelephone.setVisible(false);
 				topMenu.setVisible(true);
+				PanelGalerie.buttonLieNewContact.setVisible(false);
+				PanelGalerie.buttonLieContact.setVisible(false);
 			}
 		});
 		frameSmartphone.getContentPane().add(buttonMenu);

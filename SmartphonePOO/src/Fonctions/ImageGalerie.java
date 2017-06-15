@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 public class ImageGalerie {
 	private String nomIcon = new String("");
 	private Dimension dimIcon = new Dimension(100, 100);
-	private ImageIcon imgIcon;
+	private static ImageIcon imgIcon;
 	private int hintsIcon = Image.SCALE_DEFAULT; 
 	private boolean stretch = true;
 	private double zoom=1;
@@ -121,7 +121,7 @@ public class ImageGalerie {
 	/**
 	 * @return the imgIcon
 	 */
-	public ImageIcon getImgIcon() {
+	public static ImageIcon getImgIcon() {
 		return imgIcon;
 	}
 	/**
