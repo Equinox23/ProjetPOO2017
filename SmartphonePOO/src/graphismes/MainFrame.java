@@ -5,17 +5,26 @@ import java.awt.event.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.*;
+
 import fonctionsSmartphone.*;
 
 public class MainFrame {
 	
 	protected JFrame frameSmartphone;
-	private ArrayList<Contact> contactList = new ArrayList<Contact>();
-	private Contact newContact = new Contact();
-	private JList listContact ;
+	private JPanel panelContact;
+	private JPanel panelMenu;
+	private JPanel panelNewContact ;
+	private JPanel galeriePhoto ;
 	
-	public MainFrame() {
-
+	public MainFrame() throws ClassNotFoundException, IOException {
+		
+		ArrayList<Contact> arraylistContact = new ArrayList<Contact>();
+		
+		ContactFile.DownloadDataContact("./BDDContacts",arraylistContact);
+		
+		JList jlistContact = new JList(arraylistContact.toArray());
+		Contact newContact = new Contact();
+		
 		/*Définition de la trame de fond*/
 		frameSmartphone = new JFrame();
 		frameSmartphone.setResizable(false);
@@ -30,14 +39,14 @@ public class MainFrame {
 		/*-------------------------------------------------------------------------------------------------------------------*/
 		
 		/*Création du menu de base*/
-		final JPanel panelMenu = new JPanel();
+		panelMenu = new JPanel();
 		panelMenu.setBackground(new Color(0,0,0,150));
 		panelMenu.setBounds(15, 15, 400, 650);
 		frameSmartphone.getContentPane().add(panelMenu);
 		panelMenu.setVisible(false);
 		
 		/*Création du panel contact*/
-		final JPanel panelContact = new JPanel();
+		panelContact = new JPanel();
 		panelContact.setBackground(new Color(0,0,0,150));
 		panelContact.setBounds(15, 15, 400, 650);
 		frameSmartphone.getContentPane().add(panelContact);
@@ -45,7 +54,7 @@ public class MainFrame {
 		panelContact.setLayout(null);
 		
 		/*Création du panel nouveau contact*/
-		final JPanel panelNewContact = new JPanel();
+		panelNewContact = new JPanel();
 		panelNewContact.setBackground(new Color(0,0,0,150));
 		panelNewContact.setBounds(15, 15, 400, 650);
 		frameSmartphone.getContentPane().add(panelNewContact);
@@ -53,7 +62,7 @@ public class MainFrame {
 		panelContact.setLayout(null);
 		
 		/*Création du panel galerie photo*/
-		final JPanel galeriePhoto = new JPanel();
+		galeriePhoto = new JPanel();
 		galeriePhoto.setBackground(new Color(0,0,0,150));
 		galeriePhoto.setBounds(15, 15, 400, 650);
 		frameSmartphone.getContentPane().add(galeriePhoto);
@@ -92,9 +101,8 @@ public class MainFrame {
 		});
 		panelNewContact.add(lastNamef);
 		
-		listContact = new JList(contactList.toArray()) ;
-		panelContact.add(listContact);
-		listContact.setBounds(20, 250, 300, 300);
+		panelContact.add(jlistContact);
+		jlistContact.setBounds(20, 250, 300, 300);
 		
 		/*-------------------------------------------------------------------------------------------------------------------*/
 		/*CREATION DE TOUT LES BOUTONS*/
@@ -142,6 +150,11 @@ public class MainFrame {
 		});
 		buttonFermer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				try {
+					ContactFile.UploadDataContact(arraylistContact);
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 				System.exit(0);
 			}
 		});
@@ -236,7 +249,7 @@ public class MainFrame {
 				panelContact.setVisible(false);
 			}
 		});
-		
+
 		/*Création du bouton "Sauvegarder"*/
 		JButton buttonSave = new JButton("Sauver");
 		panelNewContact.add(buttonSave);
@@ -257,16 +270,31 @@ public class MainFrame {
 				newContact.setFirstname(firstNamef.getText());
 				newContact.setLastname(lastNamef.getText());
 				
-				contactList.add(newContact);
-				panelNewContact.setVisible(false);
-				panelContact.setVisible(true);
-				System.out.println(contactList);
-				System.out.println(listContact.getName());
-				MainFrame mainFrame = new MainFrame(contactList);
+				arraylistContact.add(newContact);
+				System.out.println(arraylistContact);
+				
+				try {
+					ContactFile.UploadDataContact(arraylistContact);
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+
+				/*Fermeture de la fenêtre actuelle*/
+				frameSmartphone.dispose();
+				MainFrame mainFrame;
+				try {
+					mainFrame = new MainFrame();
+					mainFrame.frameSmartphone.setVisible(true);
+					mainFrame.panelContact.setVisible(true);
+				} catch (ClassNotFoundException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}		
+				
+				
 			}
 		});
-		
-		
 	}
 }
+	
 

@@ -45,4 +45,10 @@ public class Contact implements Serializable {
 		this.contactID = contactID;
 	}
 
+	public String toString()
+	{
+		String toList = this.getFirstname()+" "+this.getLastname();
+		return toList;
+	}
+	
 }
