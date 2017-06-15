@@ -1,11 +1,10 @@
 package graphismes;
 
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.RenderingHints;
-import java.awt.Toolkit;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.AffineTransform;
@@ -16,36 +15,82 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import Fonctions.PanGalerieTop;
+import Fonctions.PanImageList;
 
-import Fonctions.ImageGalerie;
 
-
-public class PanelGalerie extends JPanel implements ActionListener {
+public class PanelGalerie extends JPanel implements ActionListener  {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	JFileChooser chooser;
 	static BufferedImage image;
 	Icon redim;
-	JButton buttonAjouterImage;
-	JLabel photos;
+	JButton buttonAjouterImage;	
 	String path;
+	JLabel photos;
 	
+	public static PanGalerieTop miniature;
+	public static JPanel boutons;
+	public static PanGalerieTop panImageView = new PanGalerieTop();
+	public static PanGalerieTop panManager = new PanGalerieTop();
 	
+	public static PanImageList panImageList = new PanImageList();
+	public static PanGalerieTop panImageListTM= new PanGalerieTop();;
+	
+	public static JButton btnLBLZoom = new JButton();	
+	public static CardLayout cl = new CardLayout();
+	public static String[] listPanel = { "ImageList", "ImageView" };
+
+	public static boolean played= false;
+	//public static Thread t = new Thread(new PlayDiaporama());
+	
+
 	public PanelGalerie(){
+		super();
 		this.setBackground(new Color(0,0,0,150));
 		this.setBounds(15, 15, 400, 650);		
 		this.setVisible(false);
 		this.setLayout(null);
 		
-		photos = new JLabel();
-		photos.setBounds(15, 15, 75, 75);
-		this.add(photos);
+		panImageListTM.setLayout(new BorderLayout());
+		panImageListTM.add(panImageList,BorderLayout.CENTER);
+
+		panImageView.setLayout(new FlowLayout(FlowLayout.CENTER));
+		panImageView.add(btnLBLZoom);
+
+		panManager.setLayout(cl);
+		panManager.add(panImageListTM, listPanel[0]);
+		panManager.add(panImageView, listPanel[1]);
+		this.add(panManager);
+		setSizeGUI();
+		setImageCard(0);
+		btnLBLZoom.addActionListener(new clic_btnLBLZoom());
+		
+	//panel de miniature
+//		miniature = new PanGalerieTop();
+//		miniature.setVisible(true);
+//		miniature.setLayout(new FlowLayout(FlowLayout.CENTER));
+//		miniature.add(btnLBLZoom);
+//		this.add(miniature);
+		
+	// panel avec boutons
+		boutons = new JPanel();
+		boutons.setBackground(new Color(0,0,0,150));
+		boutons.setBounds(0, 555, 400, 95);		
+		boutons.setVisible(true);
+		boutons.setLayout(null);
+		this.add(boutons);
 		
 		
 		
 		/*Création du bouton "Ajouter image"*/
 		buttonAjouterImage = new JButton();
-		this.add(buttonAjouterImage);
-		buttonAjouterImage.setBounds(163, 575, 75, 75);
+		boutons.add(buttonAjouterImage);
+		buttonAjouterImage.setBounds(163, 5, 75, 75);
 		buttonAjouterImage.setBackground(Color.black);
 		buttonAjouterImage.setBorder(null);
 		buttonAjouterImage.setIcon(new ImageIcon(MainFrame.class.getResource("/icon/004-technology-2.png")));
@@ -57,63 +102,91 @@ public class PanelGalerie extends JPanel implements ActionListener {
 		    	buttonAjouterImage.setBackground(Color.black);
 		    }
 		});
-		buttonAjouterImage.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ImageGalerie hope=new ImageGalerie();
-			}
-		});
+		buttonAjouterImage.addActionListener(this);
 	}
-//	
-//		/*lecteur d'image"*/	
-//		public void actionPerformed(ActionEvent e) {
-//			int result;   			
-//			chooser = new JFileChooser();
-//			chooser.setCurrentDirectory(new java.io.File(".","imagesGalerie"));
-//			chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-//
-//	     //   
-//	         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-//	        	 File file = chooser.getSelectedFile();	        	 
-//	        	 try {
-//	        		 this.image=ImageIO.read(file);	
-//	        		 this.path=file.getAbsolutePath();	                 
-//	        		 photos.setBounds(540, 10, this.scale(this.image,25).getWidth(null), this.scale(this.image,25).getHeight(null));
-//	                 
-//	                 photos.setIcon(new ImageIcon(this.scale(this.image,25)));
-//	              
-//					photos.setIcon(new ImageIcon(image));
-//	         
-//				} catch (Exception e2) {
-//					// TODO: handle exception
-//				}
-//	     
-//	               System.out.println("getSelectedFile() : "
-//	                  +  chooser.getSelectedFile());   
-//	               }
-//	             else {
-//	               System.out.println("Pas de fichier séléctioné ");
-//	               }          
-//	    	}
-//		public static BufferedImage read(File input) throws IOException {
-//			return image;
-//		}
-//		
-//		 public static BufferedImage scale(BufferedImage img, double scaleValue) {
-//		        AffineTransform tx = new AffineTransform();
-//		        tx.scale(scaleValue, scaleValue);
-//		        AffineTransformOp op = new AffineTransformOp(tx,AffineTransformOp.TYPE_BILINEAR);
-//		        BufferedImage imgNew = new BufferedImage( (int) (img.getWidth() * scaleValue),
-//		                (int) (img.getHeight() * scaleValue),
-//		                img.getType());
-//		        return op.filter(img, imgNew);
-//		 }	
+	
+	public static void setImageCard(int i) {
+		cl.show(panManager, listPanel[i]);
+	}
+	
+	public  void setSizeGUI(){
+		// sauve l'index en cours avant de refaire la grille 
+		int saveNdx = MainFrame.galerie.getNdxEnCours();
+		panImageList.setSizeGUI();//.repaintPanImageList();
+		panImageList.ajouterListener();
+		repaintPanImageView(saveNdx);
+		panManager.setPreferredSize(new Dimension(10,10));
+	}
 
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+	public static void repaintPanImageView(int index) {
+		played=false;
+		afficherImageZoom(index);
+	}
+	
+	public static void afficherImageZoom(int index) {
+		Dimension dimPicture = new Dimension(400,650);
+		PanelGalerie.btnLBLZoom.setPreferredSize(dimPicture);
+		MainFrame.galerie.picture.setZoomAuto(false);
+		MainFrame.galerie.picture.setDimIcon(dimPicture);
+		MainFrame.galerie.setPicture(index);
+		PanelGalerie.btnLBLZoom.setIcon(MainFrame.galerie.picture.getImgIcon());
+		MainFrame.galerie.picture.setZoomAuto(true);
+	}      
+	
+	public static class clic_btnLBLZoom implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			PanelGalerie.repaintPanImageView(0);
+			PanelGalerie.setImageCard(0);
+		}
+	}
+	
+	
+	
+		/*lecteur d'image"*/	
+		public void actionPerformed(ActionEvent e) {
+			int result;   			
+			chooser = new JFileChooser();
+			chooser.setCurrentDirectory(new java.io.File(".","imagesGalerie"));
+			chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+  
+	         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+	        	 File file = chooser.getSelectedFile();	        	 
+	        	 try {
+	        		 PanelGalerie.image=ImageIO.read(file);	
+	        		 this.path=file.getAbsolutePath();	
+	        		 photos=new JLabel();
+	        		 photos.setBounds(100, 10, PanelGalerie.scale(PanelGalerie.image,25).getWidth(null), PanelGalerie.scale(PanelGalerie.image,25).getHeight(null));
+	                 
+	                 photos.setIcon(new ImageIcon(PanelGalerie.scale(PanelGalerie.image,25)));
+	                 photos.setIcon(new ImageIcon(image));
+	                 miniature.add(photos);
+                 
+	         
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
+	        	 
+                 System.out.println("getSelectedFile() : "
+	                  +  chooser.getSelectedFile());   
+	               }
+	             else {
+	               System.out.println("Pas de fichier séléctioné ");
+	               }          
+	    	}
+		public static BufferedImage read(File input) throws IOException {
+			return image;
+		}
 		
-	}
+		 public static BufferedImage scale(BufferedImage img, double scaleValue) {
+		        AffineTransform tx = new AffineTransform();
+		        tx.scale(scaleValue, scaleValue);
+		        AffineTransformOp op = new AffineTransformOp(tx,AffineTransformOp.TYPE_BILINEAR);
+		        BufferedImage imgNew = new BufferedImage( (int) (img.getWidth() * scaleValue),
+		                (int) (img.getHeight() * scaleValue),
+		                img.getType());
+		        return op.filter(img, imgNew);
+	 }	
+		 
 
 }
 

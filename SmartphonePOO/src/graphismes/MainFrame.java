@@ -9,7 +9,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import Fonctions.ImageGalerie;
+
+import Fonctions.MyListGalerie;
+
 import fonctionsSmartphone.*;
 
 import java.time.LocalDateTime;
@@ -18,14 +20,19 @@ import java.time.format.DateTimeFormatter;
 public class MainFrame {
 	
 	protected JFrame frameSmartphone;
+
+	public static JScrollPane scrollPane;
+	public static JList<Contact> listContact;
+	public static MyListGalerie galerie = new MyListGalerie("./ImagesGalerie");
+
 	
 	private JPanel panelContact;
 	private JPanel panelMenu;
 	private JPanel panelNewContact;
-	private JPanel galeriePhoto;
 	private JPanel panelModifDeleteContact;
 	private JPanel topMenu;
-	
+	private JPanel galeriePhoto;
+
 	private JLabel fondEcran;
 	private JLabel labelFirstName1;
 	private JLabel labelLastName1;
@@ -139,6 +146,7 @@ public class MainFrame {
 		galeriePhoto = new JPanel();
 		galeriePhoto.setBackground(new Color(0,0,0,150));
 		galeriePhoto.setBounds(15, 45, 400, 620);
+
 		//final JPanel galeriePhoto = new JPanel();
 		PanelGalerie galeriePhoto = new PanelGalerie();
 		frameSmartphone.getContentPane().add(galeriePhoto);
