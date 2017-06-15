@@ -152,7 +152,7 @@ public class MainFrame {
 		galeriePhoto.setBounds(15, 45, 400, 620);
 
 		//final JPanel galeriePhoto = new JPanel();
-		PanelGalerie galeriePhoto = new PanelGalerie();
+		galeriePhoto = new PanelGalerie();
 		frameSmartphone.getContentPane().add(galeriePhoto);
 		
 		fondEcran = new JLabel();
@@ -232,8 +232,6 @@ public class MainFrame {
 		labelemail1.setForeground(Color.white);
 		
 		/*Photo*/
-
-		
 		photo1 = new JLabel("Photo");
 		photo1.setFont(fontBold);
 		panelNewContact.add(photo1);
@@ -291,7 +289,6 @@ public class MainFrame {
 		labelemail2.setForeground(Color.white);
 		
 		/*Photo*/
-		
 		photo2 = new JLabel("Photo");
 		photo2.setFont(fontBold);
 		panelModifDeleteContact.add(photo2);
@@ -490,29 +487,6 @@ public class MainFrame {
 			}
 		});
 		
-		/*Création du bouton "Ajouter image"*/
-//		JButton buttonAjouterImage = new JButton();
-//		galeriePhoto.add(buttonAjouterImage);
-//		buttonAjouterImage.setBounds(163, 575, 75, 75);
-//		buttonAjouterImage.setBackground(Color.black);
-//		buttonAjouterImage.setBorder(null);
-//		buttonAjouterImage.setIcon(new ImageIcon(MainFrame.class.getResource("/icon/004-technology-2.png")));
-//		buttonAjouterImage.addMouseListener(new java.awt.event.MouseAdapter() {
-//		    public void mouseEntered(java.awt.event.MouseEvent e) {
-//		    	buttonAjouterImage.setBackground(Color.GRAY);
-//		    }
-//		    public void mouseExited(java.awt.event.MouseEvent e) {
-//		    	buttonAjouterImage.setBackground(Color.black);
-//		    }
-//		});
-//		buttonAjouterImage.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				Graphics g = galeriePhoto.getGraphics();
-//				Image image = Toolkit.getDefaultToolkit().getImage("/ImagesGalerie/img%20(1).jpg");
-//				g.drawImage(image, 0, 0, null);
-//			}
-//		});
-		
 	/*Création du bouton "Sauvegarder"*/
 		buttonSave = new JButton("Sauver");
 		buttonSave.setFont(fontBold);
@@ -638,7 +612,7 @@ public class MainFrame {
 			}
 		});
 		
-		/*Création du bouton "Modifier"*/
+	/*Création du bouton "Modifier"*/
 		buttonModify = new JButton("Modifier");
 		panelModifDeleteContact.add(buttonModify);
 		buttonModify.setFont(fontBold);
@@ -692,7 +666,7 @@ public class MainFrame {
 			}
 		});
 		
-		/*Création du bouton "Annuler" un nouveau contact*/
+	/*Création du bouton "Annuler" un nouveau contact*/
 		cancelNewContact = new JButton("Annuler");
 		panelNewContact.add(cancelNewContact);
 		cancelNewContact.setFont(fontBold);
@@ -719,7 +693,7 @@ public class MainFrame {
 			}
 		});
 		
-		/*Création du bouton "Annuler" une modification/suppression*/
+	/*Création du bouton "Annuler" une modification/suppression*/
 		cancelModification = new JButton("Annuler");
 		panelModifDeleteContact.add(cancelModification);
 		cancelModification.setFont(fontBold);
@@ -768,7 +742,7 @@ public class MainFrame {
 			}
 		});
 		
-		/*Création du bouton "Photo" dans ajout contact*/
+	/*Création du bouton "Photo" dans ajout contact*/
 		profilpicture1 = new JButton();
 		panelNewContact.add(profilpicture1);
 		profilpicture1.setBounds(100, 210, 220, 220);
@@ -782,7 +756,7 @@ public class MainFrame {
 			}
 		});
 		
-		/*Création du bouton "Photo" dans modif/delete contact*/
+	/*Création du bouton "Photo" dans modif/delete contact*/
 		profilpicture2 = new JButton();
 		panelModifDeleteContact.add(profilpicture2);
 		profilpicture2.setBounds(100, 210, 220, 220);
