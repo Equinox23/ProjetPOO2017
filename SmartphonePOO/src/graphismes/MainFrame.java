@@ -518,6 +518,7 @@ public class MainFrame {
 				newContact.setLastname(lastNamef1.getText());
 				newContact.setPhonenumber(phonenumber1.getText());
 				newContact.setEmail(email1.getText());
+				newContact.setProfilpicture("./imagesSmartphone/profil.jpg");
 				
 				arraylistContact.add(newContact);
 				

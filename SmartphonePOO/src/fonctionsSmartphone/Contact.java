@@ -69,8 +69,8 @@ public class Contact implements Serializable {
 	}
 
 
-	public void setProfilpicture(String profilpicture) {
-		this.profilpicture = profilpicture;
+	public void setProfilpicture(String profilPath) {
+		this.profilpicture = profilPath;
 	}
 
 	public String toString()

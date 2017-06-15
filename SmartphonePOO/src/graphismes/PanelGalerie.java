@@ -141,6 +141,7 @@ public class PanelGalerie extends JPanel implements ActionListener  {
 			public void actionPerformed(ActionEvent e) {
 				MainFrame.panelNewContact.setVisible(true);
 				MainFrame.galeriePhoto.setVisible(false);
+				MainFrame.profilpicture1.setIcon(ImageGalerie.getImgIcon());
 			}
 		});
 	}
