@@ -143,7 +143,7 @@ public class PanelGalerie extends JPanel implements ActionListener  {
 	
 	
 		/*lecteur d'image"*/	
-		public void actionPerformed1(ActionEvent e) {
+		public void actionPerformed(ActionEvent e) {
 			int result;   			
 			chooser = new JFileChooser();
 			chooser.setCurrentDirectory(new java.io.File(".","imagesGalerie"));
@@ -187,13 +187,6 @@ public class PanelGalerie extends JPanel implements ActionListener  {
 		        return op.filter(img, imgNew);
 	 }	
 		 
-
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
 

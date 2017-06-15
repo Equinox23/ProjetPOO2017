@@ -44,14 +44,13 @@ public abstract class ImageList extends PanGalerieTop{
 		sp.setVisible(true);
 		sp.setBorder(BorderFactory.createEmptyBorder());
 		sp.setWheelScrollingEnabled(true);
-//		sp.getVerticalScrollBar().setUI(new MyScrollBarUI());	
-//		sp.getHorizontalScrollBar().setUI(new MyScrollBarUI());
-		sp.setPreferredSize(new Dimension(420,555));
+
+		sp.setPreferredSize(new Dimension(401,555));
 	}
 	public void setSizeGUI(){
 		mpl.removeAll();
 		nbColonne = 3;
-		size =400/nbColonne;
+		size =360/nbColonne;
 		dim = new Dimension(size,size-0);
 
 		// Ajout les images aux boutons

@@ -4,10 +4,7 @@ import java.awt.Dimension;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 /**
- * <b>La class Picture permet la gestion d'une image.</b>
- * <p>
- * Membres de Picture :
- * <ul>
+ * Gestion des Images de la gallerie
  * <li>nomIcon : nom de l'image</li>
  * <li>dimIcon : dimension de l'image</li>
  * <li>imgIcon : ImageIcon de l'image</li>
@@ -17,10 +14,6 @@ import javax.swing.ImageIcon;
  * <li>zoomAuto : paramétrage pour setImgIconResized</li>
  * </ul>
  * </p>
- * @author Giuseppe
- * @category Gallery
- * @see Gallery
- * @see setImgIconResized
  */
 public class ImageGalerie {
 	private String nomIcon = new String("");
@@ -41,18 +34,18 @@ public class ImageGalerie {
 	 * @param dimIcon : la nouvelle Dimension de l'image à redimensionner.
 	 * 
 	*/
-	public ImageGalerie(String nomIcon, Dimension dimIcon){
-		this.setNomIcon(nomIcon, dimIcon);
-	}
+//	public ImageGalerie(String nomIcon, Dimension dimIcon){
+//		this.setNomIcon(nomIcon, dimIcon);
+//	}
 	/**
 	 * Constructeur de Pictures:
 	 * @param imgIcon : l'ImageIcon à redimensionner.
 	 * @param dimIcon : la nouvelle Dimension de l'ImageIcon à redimensionner.
 	 * 
 	*/
-	public ImageGalerie(ImageIcon imgIcon, Dimension dimIcon){
-		this.setImgIconResized(imgIcon, dimIcon);
-	}
+//	public ImageGalerie(ImageIcon imgIcon, Dimension dimIcon){
+//		this.setImgIconResized(imgIcon, dimIcon);
+//	}
 	
 	public void setNomIcon(String nomIcon, Dimension dimIcon) {
 		this.nomIcon = nomIcon;
