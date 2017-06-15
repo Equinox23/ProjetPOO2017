@@ -55,18 +55,18 @@ public class MainFrame {
 		frameSmartphone.setLocationRelativeTo(null);		
 		frameSmartphone.getContentPane().setLayout(null);
 				
-		/*-------------------------------------------------------------------------------------------------------------------*/
-		/*CREATION DE TOUS LES PANELS*/
-		/*-------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------*/
+/*CREATION DE TOUS LES PANELS*/
+/*-------------------------------------------------------------------------------------------------------------------*/
 		
-		/*Création du menu de base*/
+	/*Création du menu de base*/
 		panelMenu = new JPanel();
 		panelMenu.setBackground(new Color(0,0,0,150));
 		panelMenu.setBounds(15, 15, 400, 650);
 		frameSmartphone.getContentPane().add(panelMenu);
 		panelMenu.setVisible(false);
 		
-		/*Création du panel contact*/
+	/*Création du panel contact*/
 		panelContact = new JPanel();
 		panelContact.setBackground(new Color(0,0,0,150));
 		panelContact.setBounds(15, 15, 400, 650);
@@ -74,7 +74,7 @@ public class MainFrame {
 		panelContact.setVisible(false);
 		panelContact.setLayout(null);
 		
-		/*Création du panel nouveau contact*/
+	/*Création du panel nouveau contact*/
 		panelNewContact = new JPanel();
 		panelNewContact.setBackground(new Color(0,0,0,150));
 		panelNewContact.setBounds(15, 15, 400, 650);
@@ -82,7 +82,7 @@ public class MainFrame {
 		panelNewContact.setVisible(false);
 		panelContact.setLayout(null);
 		
-		/*Création du panel galerie photo*/
+	/*Création du panel galerie photo*/
 		galeriePhoto = new JPanel();
 		galeriePhoto.setBackground(new Color(0,0,0,150));
 		galeriePhoto.setBounds(15, 15, 400, 650);
