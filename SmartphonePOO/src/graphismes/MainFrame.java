@@ -44,6 +44,8 @@ public class MainFrame {
 	private JLabel labelemail2;
 	private JLabel heuretelephone;
 	private JLabel heuretelephonepetit;
+	private JLabel photo1;
+	private JLabel photo2;
 	
 	private JScrollPane listScroller;
 	
@@ -67,6 +69,7 @@ public class MainFrame {
 	private JButton buttonModify;
 	private JButton cancelNewContact;
 	private JButton cancelModification;
+	
 	
 	private Font font;
 	private Font fontBold;
@@ -227,6 +230,15 @@ public class MainFrame {
 		labelemail1.setBounds(10, 160, 100, 40);
 		labelemail1.setForeground(Color.white);
 		
+		/*Photo*/
+
+		
+		photo1 = new JLabel("Photo");
+		photo1.setFont(fontBold);
+		panelNewContact.add(photo1);
+		photo1.setBounds(10, 210, 100, 40);
+		photo1.setForeground(Color.white);
+		
 	/*Création des champs de modification de contact*/
 		
 		/*Prénom*/
@@ -276,6 +288,14 @@ public class MainFrame {
 		panelModifDeleteContact.add(labelemail2);
 		labelemail2.setBounds(10, 160, 100, 40);
 		labelemail2.setForeground(Color.white);
+		
+		/*Photo*/
+		
+		photo2 = new JLabel("Photo");
+		photo2.setFont(fontBold);
+		panelModifDeleteContact.add(photo2);
+		photo2.setBounds(10, 210, 100, 40);
+		photo2.setForeground(Color.white);
 		
 	/*Création des champs du menu contact*/
 		
