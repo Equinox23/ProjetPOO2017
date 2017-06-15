@@ -108,6 +108,13 @@ public class PanelGalerie extends JPanel implements ActionListener {
 //		        return op.filter(img, imgNew);
 //		 }	
 
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
 
 

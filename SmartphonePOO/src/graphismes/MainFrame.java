@@ -28,6 +28,8 @@ public class MainFrame {
 	private JLabel labelLastName1;
 	private JLabel labelFirstName2;
 	private JLabel labelLastName2;
+	private JLabel labelphonenumber1;
+	private JLabel labelphonenumber2;
 	
 	private JScrollPane listScroller;
 	
@@ -35,6 +37,8 @@ public class MainFrame {
 	private JTextField lastNamef1;
 	private JTextField firstNamef2;
 	private JTextField lastNamef2;
+	private JTextField phonenumber1;
+	private JTextField phonenumber2;
 	
 	private JButton buttonMenu;
 	private JButton buttonFermer;
@@ -154,6 +158,18 @@ public class MainFrame {
 		labelLastName1.setBounds(10, 10, 100, 40);
 		labelLastName1.setForeground(Color.white);
 		
+		/*Téléphone*/
+		phonenumber1 = new JTextField();
+		panelNewContact.add(phonenumber1);
+		phonenumber1.setFont(font);
+		phonenumber1.setBounds(100, 110, 290, 40);
+		
+		labelphonenumber1 = new JLabel("Téléphone");
+		labelphonenumber1.setFont(fontBold);
+		panelNewContact.add(labelphonenumber1);
+		labelphonenumber1.setBounds(10, 110, 100, 40);
+		labelphonenumber1.setForeground(Color.white);
+		
 	/*Création des champs de modification de contact*/
 		
 		/*Prénom*/
@@ -179,6 +195,18 @@ public class MainFrame {
 		panelModifDeleteContact.add(labelLastName2);
 		labelLastName2.setBounds(10, 10, 100, 40);
 		labelLastName2.setForeground(Color.white);
+		
+		/*Téléphone*/
+		phonenumber2 = new JTextField();
+		panelModifDeleteContact.add(phonenumber2);
+		phonenumber2.setFont(font);
+		phonenumber2.setBounds(100, 110, 290, 40);
+		
+		labelphonenumber2 = new JLabel("Téléphone");
+		labelphonenumber2.setFont(fontBold);
+		panelModifDeleteContact.add(labelphonenumber2);
+		labelphonenumber2.setBounds(10, 110, 100, 40);
+		labelphonenumber2.setForeground(Color.white);
 		
 	/*Création des champs du menu contact*/
 		
@@ -414,6 +442,7 @@ public class MainFrame {
 					
 				newContact.setFirstname(firstNamef1.getText());
 				newContact.setLastname(lastNamef1.getText());
+				newContact.setPhonenumber(phonenumber1.getText());
 				
 				arraylistContact.add(newContact);
 				
@@ -449,6 +478,7 @@ public class MainFrame {
 				
 				firstNamef2.setText(arraylistContact.get(selectedContact.getLastIndex()).getFirstname());
 				lastNamef2.setText(arraylistContact.get(selectedContact.getLastIndex()).getLastname());
+				phonenumber2.setText(arraylistContact.get(selectedContact.getLastIndex()).getPhonenumber());
 				
 				panelModifDeleteContact.setVisible(true);
 				panelContact.setVisible(false);
@@ -481,6 +511,7 @@ public class MainFrame {
 						
 				newContact.setFirstname(firstNamef2.getText());
 				newContact.setLastname(lastNamef2.getText());
+				newContact.setPhonenumber(phonenumber2.getText());
 				
 				arraylistContact.remove(contactencours);
 				
@@ -531,6 +562,7 @@ public class MainFrame {
 						
 				newContact.setFirstname(firstNamef2.getText());
 				newContact.setLastname(lastNamef2.getText());
+				newContact.setPhonenumber(phonenumber2.getText());
 				
 				arraylistContact.remove(contactencours);
 				arraylistContact.add(newContact);
