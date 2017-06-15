@@ -2,21 +2,19 @@ package graphismes;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Vector;
-
+import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.*;
 import fonctionsSmartphone.*;
 
 public class MainFrame {
 	
 	protected JFrame frameSmartphone;
-	public static JScrollPane scrollPane;
-	public static MyList<Contact> listContact;
+	private ArrayList<Contact> contactList = new ArrayList<Contact>();
+	private Contact newContact = new Contact();
+	private JList listContact ;
 	
 	public MainFrame() {
-		
-		/*Chargement de la liste des contacts à l'ouverture*/
-		ContactList.listContact= ContactList.ChargerListContact();
 
 		/*Définition de la trame de fond*/
 		frameSmartphone = new JFrame();
@@ -28,7 +26,7 @@ public class MainFrame {
 		frameSmartphone.getContentPane().setLayout(null);
 				
 		/*-------------------------------------------------------------------------------------------------------------------*/
-		/*CREATION DE TOUT LES PANELS*/
+		/*CREATION DE TOUS LES PANELS*/
 		/*-------------------------------------------------------------------------------------------------------------------*/
 		
 		/*Création du menu de base*/
@@ -71,35 +69,32 @@ public class MainFrame {
 		/*CREATION DE TOUT LES CHAMPS*/
 		/*-------------------------------------------------------------------------------------------------------------------*/
 		
-		
-		listContact = new MyList<Contact>(listContact,new Vector<Contact>(ContactList.listContact));
-		scrollPane = new JScrollPane(listContact);
-		scrollPane.setBorder(BorderFactory.createEmptyBorder());
-		scrollPane.setViewportView(listContact);
-		panelContact.add(scrollPane);
-		
 		/*Création des champs d'ajout de contact*/
-		JTextField txtPrenom = new JTextField();
-		txtPrenom.setText("Prénom ");
-		txtPrenom.setBounds(10, 10, 40, 10);
-		txtPrenom.addFocusListener(new FocusAdapter() {
+		JTextField firstNamef = new JTextField();
+		firstNamef.setText("Prénom ");
+		firstNamef.setBounds(10, 10, 40, 10);
+		firstNamef.addFocusListener(new FocusAdapter() {
 		    @Override
 		    public void focusGained(FocusEvent e) {
-		    	txtPrenom.setText("");
+		    	firstNamef.setText("");
 		    }
 		});
-		panelNewContact.add(txtPrenom);
+		panelNewContact.add(firstNamef);
 		
-		JTextField txtNom = new JTextField();
-		txtNom.setText("Nom ");
-		txtNom.setBounds(10, 10, 40, 10);
-		txtNom.addFocusListener(new FocusAdapter() {
+		JTextField lastNamef = new JTextField();
+		lastNamef.setText("Nom ");
+		lastNamef.setBounds(10, 10, 40, 10);
+		lastNamef.addFocusListener(new FocusAdapter() {
 		    @Override
 		    public void focusGained(FocusEvent e) {
-		    	txtNom.setText("");
+		    	lastNamef.setText("");
 		    }
 		});
-		panelNewContact.add(txtNom);
+		panelNewContact.add(lastNamef);
+		
+		listContact = new JList(contactList.toArray()) ;
+		panelContact.add(listContact);
+		listContact.setBounds(20, 250, 300, 300);
 		
 		/*-------------------------------------------------------------------------------------------------------------------*/
 		/*CREATION DE TOUT LES BOUTONS*/
@@ -258,9 +253,20 @@ public class MainFrame {
 		});
 		buttonSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+					
+				newContact.setFirstname(firstNamef.getText());
+				newContact.setLastname(lastNamef.getText());
 				
+				contactList.add(newContact);
+				panelNewContact.setVisible(false);
+				panelContact.setVisible(true);
+				System.out.println(contactList);
+				System.out.println(listContact.getName());
+				MainFrame mainFrame = new MainFrame(contactList);
 			}
 		});
+		
+		
 	}
 }
 
