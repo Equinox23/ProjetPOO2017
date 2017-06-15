@@ -47,7 +47,7 @@ public class Contact implements Serializable {
 
 	public String toString()
 	{
-		String toList = this.getFirstname()+" "+this.getLastname();
+		String toList = this.getLastname() + " " + this.getFirstname();
 		return toList;
 	}
 	

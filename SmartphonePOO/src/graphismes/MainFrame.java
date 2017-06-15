@@ -24,6 +24,10 @@ public class MainFrame {
 	private JPanel panelModifDeleteContact;
 	
 	private JLabel fondEcran;
+	private JLabel labelFirstName1;
+	private JLabel labelLastName1;
+	private JLabel labelFirstName2;
+	private JLabel labelLastName2;
 	
 	private JScrollPane listScroller;
 	
@@ -44,6 +48,9 @@ public class MainFrame {
 	private JButton cancelNewContact;
 	private JButton cancelModification;
 	
+	private Font font;
+	private Font fontBold;
+	
 	private JList jlistContact ;
 	int contactencours;
 	
@@ -56,6 +63,9 @@ public class MainFrame {
 		jlistContact = new JList(arraylistContact.toArray());
 		
 		Contact newContact = new Contact();
+		
+		font = new Font("Roboto", Font.PLAIN, 15);
+		fontBold = new Font("Roboto", Font.BOLD, 15);
 		
 		/*Définition de la trame de fond*/
 		frameSmartphone = new JFrame();
@@ -123,24 +133,52 @@ public class MainFrame {
 		/*Prénom*/
 		firstNamef1 = new JTextField();
 		panelNewContact.add(firstNamef1);
-		firstNamef1.setBounds(20, 200, 100, 30);
+		firstNamef1.setFont(font);
+		firstNamef1.setBounds(100, 60, 290, 40);
+		
+		labelFirstName1 = new JLabel("Prénom");
+		labelFirstName1.setFont(fontBold);
+		panelNewContact.add(labelFirstName1);
+		labelFirstName1.setBounds(10, 60, 100, 40);
+		labelFirstName1.setForeground(Color.white);
 
 		/*Nom*/
 		lastNamef1 = new JTextField();
 		panelNewContact.add(lastNamef1);
-		lastNamef1.setBounds(20, 250, 100, 30);
+		lastNamef1.setFont(font);
+		lastNamef1.setBounds(100, 10, 290, 40);
+		
+		labelLastName1 = new JLabel("Nom");
+		labelLastName1.setFont(fontBold);
+		panelNewContact.add(labelLastName1);
+		labelLastName1.setBounds(10, 10, 100, 40);
+		labelLastName1.setForeground(Color.white);
 		
 	/*Création des champs de modification de contact*/
 		
 		/*Prénom*/
 		firstNamef2 = new JTextField();
 		panelModifDeleteContact.add(firstNamef2);
-		firstNamef2.setBounds(20, 200, 100, 30);
+		firstNamef2.setFont(font);
+		firstNamef2.setBounds(100, 60, 290, 40);
+		
+		labelFirstName2 = new JLabel("Prénom");
+		labelFirstName2.setFont(fontBold);
+		panelModifDeleteContact.add(labelFirstName2);
+		labelFirstName2.setBounds(10, 60, 100, 40);
+		labelFirstName2.setForeground(Color.white);
 
 		/*Nom*/
 		lastNamef2 = new JTextField();
 		panelModifDeleteContact.add(lastNamef2);
-		lastNamef2.setBounds(20, 250, 100, 30);
+		lastNamef2.setFont(font);
+		lastNamef2.setBounds(100, 10, 290, 40);
+		
+		labelLastName2 = new JLabel("Nom");
+		labelLastName2.setFont(fontBold);
+		panelModifDeleteContact.add(labelLastName2);
+		labelLastName2.setBounds(10, 10, 100, 40);
+		labelLastName2.setForeground(Color.white);
 		
 	/*Création des champs du menu contact*/
 		
@@ -150,7 +188,6 @@ public class MainFrame {
 		jlistContact.setBackground(new Color(215,216,216));
 		jlistContact.setFixedCellHeight(45);
 		jlistContact.setBorder(new EmptyBorder(0, 10, 0, 10));
-		Font font = new Font("Roboto", Font.PLAIN, 15);
 		jlistContact.setFont(font);
 		
 		listScroller = new JScrollPane(jlistContact);
@@ -355,6 +392,7 @@ public class MainFrame {
 		
 	/*Création du bouton "Sauvegarder"*/
 		buttonSave = new JButton("Sauver");
+		buttonSave.setFont(fontBold);
 		panelNewContact.add(buttonSave);
 		buttonSave.setBounds(10, 590, 380, 50);
 		buttonSave.setBackground(Color.green);
@@ -421,6 +459,7 @@ public class MainFrame {
 	/*Création du bouton "Supprimer"*/
 		buttonDelete = new JButton("Supprimer");
 		buttonDelete.setForeground(Color.white);
+		buttonDelete.setFont(fontBold);
 		panelModifDeleteContact.add(buttonDelete);
 		buttonDelete.setBounds(10, 590, 380, 50);
 		buttonDelete.setBackground(Color.red);
@@ -471,6 +510,7 @@ public class MainFrame {
 		/*Création du bouton "Modifier"*/
 		buttonModify = new JButton("Modifier");
 		panelModifDeleteContact.add(buttonModify);
+		buttonModify.setFont(fontBold);
 		buttonModify.setBounds(10, 530, 380, 50);
 		buttonModify.setBackground(Color.green);
 		buttonModify.setBorder(null);
@@ -521,6 +561,7 @@ public class MainFrame {
 		/*Création du bouton "Annuler" un nouveau contact*/
 		cancelNewContact = new JButton("Annuler");
 		panelNewContact.add(cancelNewContact);
+		cancelNewContact.setFont(fontBold);
 		cancelNewContact.setBounds(10, 530, 380, 50);
 		cancelNewContact.setBackground(Color.white);
 		cancelNewContact.setBorder(null);
@@ -547,6 +588,7 @@ public class MainFrame {
 		/*Création du bouton "Annuler" une modification/suppression*/
 		cancelModification = new JButton("Annuler");
 		panelModifDeleteContact.add(cancelModification);
+		cancelModification.setFont(fontBold);
 		cancelModification.setBounds(10, 470, 380, 50);
 		cancelModification.setBackground(Color.white);
 		cancelModification.setBorder(null);
