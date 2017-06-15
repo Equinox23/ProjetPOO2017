@@ -117,8 +117,8 @@ public class PanelGalerie extends JPanel implements ActionListener  {
 			public void actionPerformed(ActionEvent e) {
 				MainFrame.panelModifDeleteContact.setVisible(true);
 				MainFrame.galeriePhoto.setVisible(false);
-				System.out.println(ImageGalerie.getImgIcon());
-				MainFrame.newContact.setProfilpicture("test");
+				MainFrame.profilpicture2.setIcon(ImageGalerie.getImgIcon());
+
 			}
 		});
 		

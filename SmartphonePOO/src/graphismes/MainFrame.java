@@ -68,8 +68,8 @@ public class MainFrame {
 	private JButton buttonModify;
 	private JButton cancelNewContact;
 	private JButton cancelModification;
-	private JButton profilpicture1;
-	private JButton profilpicture2;
+	protected static JButton profilpicture1;
+	protected static JButton profilpicture2;
 	private JButton newprofilpicture1;
 	private JButton newprofilpicture2;
 		
