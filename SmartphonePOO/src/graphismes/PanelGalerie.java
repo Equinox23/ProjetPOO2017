@@ -48,9 +48,8 @@ public class PanelGalerie extends JPanel implements ActionListener  {
 
 	public static boolean played= false;
 	//public static Thread t = new Thread(new PlayDiaporama());
-	
 
-	public PanelGalerie(){
+	public PanelGalerie() {
 		super();
 		this.setBackground(new Color(0,0,0,150));
 		this.setBounds(15, 15, 400, 650);		
@@ -112,8 +111,9 @@ public class PanelGalerie extends JPanel implements ActionListener  {
 		});
 		buttonLieContact.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MainFrame.panelNewContact.setVisible(true);
-				MainFrame.galeriePhoto.setVisible(false);			
+				MainFrame.panelModifDeleteContact.setVisible(true);
+				MainFrame.galeriePhoto.setVisible(false);
+				System.out.println(MainFrame.contactencours);
 			}
 		});
 	}

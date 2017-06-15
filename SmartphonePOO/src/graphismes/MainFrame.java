@@ -79,7 +79,7 @@ public class MainFrame {
 	private Font fontHeurepetit;
 	
 	private JList jlistContact ;
-	int contactencours;
+	protected static int contactencours;
 	
 	public MainFrame() throws ClassNotFoundException, IOException {
 		
@@ -581,11 +581,6 @@ public class MainFrame {
 		/*Ajout de l'action du bouton*/
 		buttonDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-						
-				newContact.setFirstname(firstNamef2.getText());
-				newContact.setLastname(lastNamef2.getText());
-				newContact.setPhonenumber(phonenumber2.getText());
-				newContact.setEmail(email2.getText());
 				
 				arraylistContact.remove(contactencours);
 				
@@ -820,6 +815,8 @@ public class MainFrame {
 		/*Ajout de l'action du bouton*/
 		newprofilpicture2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				System.out.println(contactencours);
 				panelModifDeleteContact.setVisible(false);
 				galeriePhoto.setVisible(true);
 			}
