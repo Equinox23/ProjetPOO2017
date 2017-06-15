@@ -5,6 +5,8 @@ import java.awt.event.*;
 import java.util.Vector;
 
 import javax.swing.*;
+
+import Fonctions.ImageGalerie;
 import fonctionsSmartphone.*;
 
 public class MainFrame {
@@ -55,12 +57,9 @@ public class MainFrame {
 		panelContact.setLayout(null);
 		
 		/*Création du panel galerie photo*/
-		final JPanel galeriePhoto = new JPanel();
-		galeriePhoto.setBackground(new Color(0,0,0,150));
-		galeriePhoto.setBounds(15, 15, 400, 650);
+		//final JPanel galeriePhoto = new JPanel();
+		PanelGalerie galeriePhoto = new PanelGalerie();
 		frameSmartphone.getContentPane().add(galeriePhoto);
-		galeriePhoto.setVisible(false);
-		panelContact.setLayout(null);
 		
 		JLabel fondEcran = new JLabel();
 		fondEcran.setBounds(15, 15, 400, 650);
@@ -240,7 +239,30 @@ public class MainFrame {
 				panelNewContact.setVisible(true);
 				panelContact.setVisible(false);
 			}
-		});
+		});		
+		
+		/*Création du bouton "Ajouter image"*/
+//		JButton buttonAjouterImage = new JButton();
+//		galeriePhoto.add(buttonAjouterImage);
+//		buttonAjouterImage.setBounds(163, 575, 75, 75);
+//		buttonAjouterImage.setBackground(Color.black);
+//		buttonAjouterImage.setBorder(null);
+//		buttonAjouterImage.setIcon(new ImageIcon(MainFrame.class.getResource("/icon/004-technology-2.png")));
+//		buttonAjouterImage.addMouseListener(new java.awt.event.MouseAdapter() {
+//		    public void mouseEntered(java.awt.event.MouseEvent e) {
+//		    	buttonAjouterImage.setBackground(Color.GRAY);
+//		    }
+//		    public void mouseExited(java.awt.event.MouseEvent e) {
+//		    	buttonAjouterImage.setBackground(Color.black);
+//		    }
+//		});
+//		buttonAjouterImage.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				Graphics g = galeriePhoto.getGraphics();
+//				Image image = Toolkit.getDefaultToolkit().getImage("/ImagesGalerie/img%20(1).jpg");
+//				g.drawImage(image, 0, 0, null);
+//			}
+//		});
 		
 		/*Création du bouton "Sauvegarder"*/
 		JButton buttonSave = new JButton("Sauver");
