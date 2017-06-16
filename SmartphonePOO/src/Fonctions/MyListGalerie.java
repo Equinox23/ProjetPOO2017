@@ -2,7 +2,7 @@ package Fonctions;
 import java.io.File;
 import java.util.ArrayList;
 /**
- * <b>La classe Gallery permet la gestion d'une gallerie d'image.</b>
+ * <b>La classe MyListGalerie permet la gestion d'une gallerie d'image.</b>
  * <p>
  * Membres de Gallery :
  * <ul>
@@ -22,7 +22,7 @@ public class MyListGalerie {
 	public ImageGalerie picture = new ImageGalerie();
 
 	/**
-	 * Un paramètre est nécessaire lors de sa contruction:  
+	 * Un paramètre est ynécessaire lors de sa contruction:  
 	 * le répertoire de la gallerie.
 	 * @param dir Répertoire des images qui vont composer la gallerie.
 	 */
